@@ -1,0 +1,29 @@
+2022-03-10 14:22:39 [INFO ] main StartupInfoLogger.java:55 com.eternal.zjp.core.RedisTemplateTests Starting RedisTemplateTests on DESKTOP-2NQJSAM with PID 18400 (started by Eternal in D:\Data\Stuff\Java\Projects\ZhiJiangPsychological\zjp\service-core)
+2022-03-10 14:22:40 [INFO ] main SpringApplication.java:655 com.eternal.zjp.core.RedisTemplateTests The following profiles are active: dev
+2022-03-10 14:22:49 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.core.RedisTemplateTests Started RedisTemplateTests in 10.584 seconds (JVM running for 13.07)
+2022-03-10 14:25:45 [INFO ] main StartupInfoLogger.java:55 com.eternal.zjp.core.RedisTemplateTests Starting RedisTemplateTests on DESKTOP-2NQJSAM with PID 9312 (started by Eternal in D:\Data\Stuff\Java\Projects\ZhiJiangPsychological\zjp\service-core)
+2022-03-10 14:25:45 [INFO ] main SpringApplication.java:655 com.eternal.zjp.core.RedisTemplateTests The following profiles are active: dev
+2022-03-10 14:26:00 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.core.RedisTemplateTests Started RedisTemplateTests in 16.381 seconds (JVM running for 18.536)
+2022-03-10 14:31:34 [INFO ] main StartupInfoLogger.java:55 com.eternal.zjp.core.RedisTemplateTests Starting RedisTemplateTests on DESKTOP-2NQJSAM with PID 28180 (started by Eternal in D:\Data\Stuff\Java\Projects\ZhiJiangPsychological\zjp\service-core)
+2022-03-10 14:31:34 [INFO ] main SpringApplication.java:655 com.eternal.zjp.core.RedisTemplateTests The following profiles are active: dev
+2022-03-10 14:31:45 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.core.RedisTemplateTests Started RedisTemplateTests in 13.312 seconds (JVM running for 16.153)
+2022-03-10 14:36:48 [INFO ] main StartupInfoLogger.java:55 com.eternal.zjp.core.RedisTemplateTests Starting RedisTemplateTests on DESKTOP-2NQJSAM with PID 19792 (started by Eternal in D:\Data\Stuff\Java\Projects\ZhiJiangPsychological\zjp\service-core)
+2022-03-10 14:36:48 [INFO ] main SpringApplication.java:655 com.eternal.zjp.core.RedisTemplateTests The following profiles are active: dev
+2022-03-10 14:37:01 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.core.RedisTemplateTests Started RedisTemplateTests in 14.547 seconds (JVM running for 17.253)
+2022-03-10 14:38:12 [INFO ] main StartupInfoLogger.java:55 com.eternal.zjp.core.RedisTemplateTests Starting RedisTemplateTests on DESKTOP-2NQJSAM with PID 23100 (started by Eternal in D:\Data\Stuff\Java\Projects\ZhiJiangPsychological\zjp\service-core)
+2022-03-10 14:38:12 [INFO ] main SpringApplication.java:655 com.eternal.zjp.core.RedisTemplateTests The following profiles are active: dev
+2022-03-10 14:38:24 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.core.RedisTemplateTests Started RedisTemplateTests in 13.346 seconds (JVM running for 15.831)
+2022-03-10 14:38:41 [INFO ] main StartupInfoLogger.java:55 com.eternal.zjp.core.RedisTemplateTests Starting RedisTemplateTests on DESKTOP-2NQJSAM with PID 26708 (started by Eternal in D:\Data\Stuff\Java\Projects\ZhiJiangPsychological\zjp\service-core)
+2022-03-10 14:38:41 [INFO ] main SpringApplication.java:655 com.eternal.zjp.core.RedisTemplateTests The following profiles are active: dev
+2022-03-10 14:38:53 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.core.RedisTemplateTests Started RedisTemplateTests in 13.077 seconds (JVM running for 15.081)
+2022-03-10 16:00:34 [INFO ] main StartupInfoLogger.java:55 com.eternal.zjp.core.ServiceCoreApplication Starting ServiceCoreApplication on DESKTOP-2NQJSAM with PID 6352 (D:\Data\Stuff\Java\Projects\ZhiJiangPsychological\zjp\service-core\target\classes started by Eternal in D:\Data\Stuff\Java\Projects\ZhiJiangPsychological\zjp)
+2022-03-10 16:00:34 [INFO ] main SpringApplication.java:655 com.eternal.zjp.core.ServiceCoreApplication The following profiles are active: dev
+2022-03-10 16:00:55 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.core.ServiceCoreApplication Started ServiceCoreApplication in 23.735 seconds (JVM running for 28.093)
+2022-03-10 16:42:05 [INFO ] main SpringApplication.java:655 com.eternal.zjp.core.ServiceCoreApplication The following profiles are active: dev
+2022-03-10 16:42:29 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.core.ServiceCoreApplication Started ServiceCoreApplication in 28.542 seconds (JVM running for 30.483)
+2022-03-11 16:46:29 [INFO ] main SpringApplication.java:655 com.eternal.zjp.core.ServiceCoreApplication The following profiles are active: dev
+2022-03-11 16:46:40 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.core.ServiceCoreApplication Started ServiceCoreApplication in 16.813 seconds (JVM running for 20.834)
+2022-03-11 16:47:24 [INFO ] main SpringApplication.java:655 com.eternal.zjp.core.ServiceCoreApplication The following profiles are active: dev
+2022-03-11 16:47:36 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.core.ServiceCoreApplication Started ServiceCoreApplication in 16.395 seconds (JVM running for 19.592)
+2022-03-11 16:52:44 [INFO ] main SpringApplication.java:655 com.eternal.zjp.core.ServiceCoreApplication The following profiles are active: dev
+2022-03-11 16:52:54 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.core.ServiceCoreApplication Started ServiceCoreApplication in 13.86 seconds (JVM running for 15.432)

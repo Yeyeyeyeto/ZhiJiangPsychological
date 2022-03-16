@@ -1,0 +1,102 @@
+.wrap {
+	/*background-color: pink;*/
+	height: 569px;
+	position: relative;
+	margin: 0 auto;
+}
+
+.content {
+	background-color: white;
+	width: 800px;
+	height: 400px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -220px -400px;
+	border-radius: 20px;
+	box-shadow: 3px 4px 18px rgba(0, 0, 0, 0.12);
+}
+
+.loginPage {
+	height: 100%;
+	overflow: hidden;
+	background: url("../images/dlove.jpg") no-repeat fixed 905px 98px;
+	background-size: 420px;
+}
+.registerPage {
+	height: 100%;
+	overflow: hidden;
+	background: url("../images/alove.jpg") no-repeat fixed 905px 98px;
+	background-size: 420px;
+}
+.registerTitle {
+	font-size: 24px;
+	/*position: absolute;*/
+	margin: 50px 150px;
+}
+.registerTitle2 {
+	font-size: 24px;
+	/*position: absolute;*/
+	margin: 36px 150px;
+	width: 200px;
+}
+
+.input {
+	width: 190px;
+	height: 26px;
+	border: solid #B5B5B5 1px;
+	border-radius: 4px;
+	padding: 2px 10px;
+}
+input .input:focus {
+	border: none;
+}
+.registerCont ul {
+	margin-left: 100px;
+}
+.registerCont ul li {
+	margin-top: 24px;
+	margin-bottom: 22px;
+}
+.btn button {
+	background-color: #fff;
+	border-radius: 4px;
+	width: 160px;
+	height: 40px;
+	margin-top: 16px;
+	margin-left: 14px;
+	cursor: pointer;
+}
+
+
+.registerCont2 ul {
+	margin-left: 100px;
+}
+.registerCont2 ul li {
+	/*margin-top: 24px;*/
+	margin-bottom: 20px;
+}
+
+.registerCont2 .button {
+	background-color: white;
+	border: solid #B5B5B5 1px;
+	font-size: 12px;
+	padding: 3px 5px;
+	cursor: pointer;
+}
+
+
+
+.registerPage .registerToLogin {
+	font-size: 12px;
+	margin-left: 20px;
+}
+.registerPage .registerToLogin a {
+	color: #e799b0;
+}
+
+
+
+
+
+

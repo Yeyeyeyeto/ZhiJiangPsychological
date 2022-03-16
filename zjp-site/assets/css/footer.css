@@ -1,0 +1,76 @@
+.footer {
+	background-color: #323437;
+	height: 260px;
+}
+.foot-main {
+	width: 1150px;
+	height: 190px;
+	margin: 0 auto;
+	/*background-color: pink;*/
+}
+.footer div {	
+	color: #fff;
+}
+.logo-foot {
+	float: left;
+	/*line-height: 200px;	*/
+	margin-top: 60px;
+}
+.logo-chinese {
+	font-weight: bold;
+	font-size: 39px;
+}
+.logo-english {
+	font-size: 14px;
+}
+.info {
+	float: right;
+	width: 380px;
+	height: 160px;
+	/*padding: 0px 0px;*/
+	/*background-color: pink;*/
+	padding-top: 20px;
+}
+.info .info-about {
+	padding-top: 25px;
+	height: 75%;
+	float: left;
+	width: 100px;
+	border-right: 1px solid #393e42;
+	margin-right: 50px; 
+}
+.info .info-about ul li{
+	margin-top: 8px;
+}
+.info .info-about ul li a {
+	color: #fff;
+}
+
+.info .info-zhijiang {
+	padding-top: 25px;
+	height: 75%;
+	float: left;
+	width: 100px;
+	/*border-right: 1px solid #393e42;*/
+}
+.info .info-zhijiang ul li {
+	margin-top: 8px;
+}
+.info .info-zhijiang ul li a {
+    color: #fff;	
+    text-decoration: none;
+}
+
+
+
+.copyright {
+	width: 1000px;
+	margin: 0px auto;	
+	padding-top: 16px;
+	border-top: 1px solid #393e42;
+}
+.copyright p {
+	font-size: 12px;
+	color: #6c7377;
+	text-align: center;
+}

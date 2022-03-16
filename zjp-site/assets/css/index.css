@@ -1,0 +1,70 @@
+@charset "utf-8";
+.container {/*
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;*/
+}
+.container-white {
+    background-color: #fff;
+    margin: 30px auto;
+    padding: 25px 20px;
+    border-radius: 10px;
+
+}
+.container-gray {
+    background-color: #f3f4f5;
+    margin: 30px auto;
+    padding: 25px 20px;
+    border-radius: 10px;
+}
+.main-title .psy-answer {
+    font-family: PingFangSC-Medium;
+    font-size: 20px;
+    color: #E799B0;
+    line-height: 28px;
+    margin-right: 14px;
+}
+.main-title .sub-title {
+    font-size: 14px;
+    color: #999;
+    line-height: 18px;
+}
+.content-read {
+	background-color: pink;
+	height: 200px;
+	margin-top: 25px;
+}
+.content-test {
+	background-color: pink;
+	height: 200px;
+	margin-top: 25px;
+}
+
+.content-consult {
+	background-color: pink;
+	height: 200px;
+	margin-top: 25px;
+}
+
+.content-skanswer {
+	background-color: pink;
+	height: 200px;
+	margin-top: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
