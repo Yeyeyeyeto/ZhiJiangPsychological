@@ -24,7 +24,7 @@ export default {
 	save(questionnaire) {
 		return request({
 			url: '/admin/core/questionnaire/save',
-			method: 'post',
+			method: 'put',
 			data: questionnaire
 		})
 	},

@@ -44,7 +44,7 @@
       </el-row>
     </el-form>
 
-    <el-form v-if="borrower.status === '认证中'" label-width="170px">
+<!--     <el-form v-if="borrower.status === '认证中'" label-width="170px">
       <el-form-item label="是否通过">
         <el-radio-group v-model="approvalForm.status">
           <el-radio :label="2">
@@ -59,7 +59,54 @@
       <el-form-item v-if="approvalForm.status == 2" label="基本信息积分">
         <el-input v-model="approvalForm.infoIntegral" style="width: 140px;" />
         <span style="color: indianred">（可获取30至100积分）</span>
-      </el-form-item>
+      </el-form-item> -->
+
+      <!-- 1 是否 -->
+      <el-form label-width="100px" class="form-table">
+        <el-row>
+          <el-col :span="2">
+            <el-form-item label="题号" >
+              {{ questionnaireItemForm.qid }}
+            </el-form-item>
+          </el-col>
+
+          <el-col :span="">
+            <el-form-item label="题干">
+              <el-input v-model="questionnaireItemForm.qid" type='textarea' />
+            </el-form-item>  
+          </el-col>
+
+          <el-col :span="4">
+            <el-form-item label="选是的分值">
+              <el-input-number v-model="questionnaire.questionnaireType" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :span="4">
+            <el-form-item label="选否的分值">
+              <el-input-number v-model="questionnaire.questionnaireType" />
+            </el-form-item>
+          </el-col>
+        </el-row>
+
+        <el-row style="text-align:center">
+          <el-button @click="add">
+            增加
+          </el-button>
+        </el-row>
+      </el-form>
+
+      <!-- 2 单选 -->
+
+
+      <!-- 3 问答 -->
+
+
+      <!-- 4 多选 -->
+
+
+      <!-- 5 混合 -->
+
 
       <el-row style="text-align:center">
         <el-button type="primary" @click="approvalSubmit()">
@@ -70,6 +117,12 @@
   </div>
 </template>
 
+<style>
+  .el-form {
+    margin-bottom: 40px;
+  }
+</style>
+
 <script>
 // 引入组件
 import questionnaireApi from '@/api/core/questionnaire'
@@ -77,16 +130,21 @@ import questionnaireApi from '@/api/core/questionnaire'
 export default {
   data() {
     return {
-      questionnaire: {}, // 借款人信息
-      saveBtnDisabled: false, // 防止重复提交
-      approvalForm: { // 审批表单
-        questionnaireId: 0,
-        status: 2,
-        content: '',
-        infoIntegral: 30,
-        isIdCardOk: false,
-        isHouseOk: false,
-        isCarOk: false
+      questionnaire: {}, // 信息
+      // approvalForm: { // 审批表单
+      //   questionnaireId: 0,
+      //   status: 2,
+      //   content: '',
+      //   infoIntegral: 30,
+      //   isIdCardOk: false,
+      //   isHouseOk: false,
+      //   isCarOk: false
+      // }，
+      questionnaireItemForm: {
+        qSum: 0,
+        qItem: {
+          qid: 0
+        }
       }
     }
   },

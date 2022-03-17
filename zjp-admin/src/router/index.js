@@ -82,7 +82,14 @@ export const constantRoutes = [
         name: 'coreQuestionnaireEdit',
         component: () => import('@/views/core/questionnaire/form'),
         meta: { title: '编辑问卷' },
-        hidden: true
+        // hidden: trues
+      },
+      {
+        path: 'detail/:id', // :id是一个占位符，表示这部分url会是任何一个id
+        name: 'coreQuestionnaireDetail',
+        component: () => import('@/views/core/questionnaire/detail'),
+        meta: { title: '编辑问卷详情' },
+        // hidden: true
       }
     ]
   },

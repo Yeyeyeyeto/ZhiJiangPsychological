@@ -23,7 +23,7 @@
       <el-table-column prop="mobile" label="手机号" />
       <el-table-column prop="nickName" label="用户昵称" />
       <!-- <el-table-column prop="idCard" label="身份证号" /> -->
-      <el-table-column prop="createTime" label="注册时间" width="100" />
+      <el-table-column prop="createTime" label="注册时间" width="160" />
       <el-table-column label="用户状态" width="90">
         <template slot-scope="scope">
           <el-tag v-if="scope.row.status === 0" type="danger" size="mini">

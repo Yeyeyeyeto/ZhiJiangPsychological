@@ -1,15 +1,16 @@
 package com.eternal.zjp.core.pojo.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
-import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableField;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -42,9 +43,11 @@ public class Questionnaire implements Serializable {
     @ApiModelProperty(value = "结果说明")
     private String result;
 
+//    @JsonFormat(pattern = "yyyy-MM-dd")
     @ApiModelProperty(value = "创建时间")
     private LocalDateTime createTime;
 
+//    @JsonFormat(pattern = "yyyy-MM-dd")
     @ApiModelProperty(value = "更新时间")
     private LocalDateTime updateTime;
 
@@ -52,6 +55,5 @@ public class Questionnaire implements Serializable {
     @TableField("is_deleted")
     @TableLogic
     private Boolean deleted;
-
 
 }

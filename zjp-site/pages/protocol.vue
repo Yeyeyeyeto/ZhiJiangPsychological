@@ -1,7 +1,7 @@
-<template>
-2222222222
-
-
+<!-- <template>
+<div class="wrap">
+	<div class="content"></div>
+</div>
 </template>
 
 <script>
@@ -16,3 +16,4 @@ export default {
   },
 }
 </script>
+ -->

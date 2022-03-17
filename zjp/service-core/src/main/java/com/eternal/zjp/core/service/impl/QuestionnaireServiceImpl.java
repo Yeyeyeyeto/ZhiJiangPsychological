@@ -30,19 +30,20 @@ public class QuestionnaireServiceImpl extends ServiceImpl<QuestionnaireMapper, Q
 
     @Override
     public QuestionnaireVO getQuestionnaireVOById(Integer id) {
-        //获取借款人信息
+        //获取信息
         Questionnaire questionnaire = questionnaireMapper.selectById(id);
 
-        //填充基本借款人信息
+        //填充基本信息
         QuestionnaireVO questionnaireVO = new QuestionnaireVO();
         BeanUtils.copyProperties(questionnaire, questionnaireVO);
 
-//        //婚否
-//        questionnaireVO.setMarry(questionnaire.getMarry()?"是":"否");
-//
-//        //性别
-//        questionnaireVO.setSex(questionnaire.getSex()==1?"男":"女");
-//
+        //名字
+        questionnaireVO.setQuestionnaireName(questionnaire.getQuestionnaireName());
+
+        //类型
+//        questionnaireVO.setQuestionnaireType(questionnaire.getSex()==1?"男":"女");
+        questionnaireVO.setQuestionnaireType(questionnaire.getQuestionnaireType());
+
 //        //计算下拉列表选中内容
 //        String education = dictService.getNameByParentDictCodeAndValue("education", questionnaire.getEducation());
 //        String industry = dictService.getNameByParentDictCodeAndValue("moneyUse", questionnaire.getIndustry());

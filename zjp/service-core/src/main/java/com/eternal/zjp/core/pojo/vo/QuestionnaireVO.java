@@ -17,23 +17,25 @@ public class QuestionnaireVO {
     @ApiModelProperty(value = "作者id")
     private Integer authorId;
 
+//    @JsonFormat(pattern = "yyyy-MM-dd")
     @ApiModelProperty(value = "创建时间")
     private LocalDateTime createTime;
 
+//    @JsonFormat(pattern = "yyyy-MM-dd")
     @ApiModelProperty(value = "更新时间")
     private LocalDateTime updateTime;
 
 
     @ApiModelProperty(value = "问卷名称")
-    private LocalDateTime questionnaireName;
+    private String questionnaireName;
 
 
     @ApiModelProperty(value = "问卷类型")
-    private LocalDateTime questionnaireType;
+    private Integer questionnaireType;
 
 
     @ApiModelProperty(value = "结果说明")
-    private LocalDateTime result;
+    private String result;
 
 //    @ApiModelProperty(value = "借款人附件资料")
 //    private List<BorrowerAttachVO> borrowerAttachVOList;

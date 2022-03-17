@@ -52,7 +52,7 @@ public class AdminQuestionnaireController {
     }
 
     @ApiOperation("新增问卷")
-    @PostMapping("/save")
+    @PutMapping("/save")
     public R save(
             @ApiParam(value = "问卷对象", required = true)
             @RequestBody Questionnaire questionnaire) {
@@ -69,7 +69,7 @@ public class AdminQuestionnaireController {
     }
 
     @ApiOperation("根据id获取问卷")
-    @PutMapping("/get/{id}")
+    @GetMapping("/get/{id}")
     public R getById(
             @ApiParam(value = "数据id", required = true, example = "1")
             @PathVariable Integer id) {

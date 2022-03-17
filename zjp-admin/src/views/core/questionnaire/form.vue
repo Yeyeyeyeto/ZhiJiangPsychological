@@ -22,11 +22,19 @@
         <el-input v-model="questionnaire.result" type='textarea' />
       </el-form-item>
 
-      <el-form-item>
+      <el-form-item v-if="!questionnaire.id">
 	  		<el-button
-	          :disabled="saveBtnDisabled"
 	          type="primary"
-	          @click="saveOrUpdate()"
+	          @click="saveData()"
+	        >
+	          保存问卷信息
+	        </el-button>	
+      </el-form-item>
+
+      <el-form-item v-if="questionnaire.id">
+	  		<el-button
+	          type="primary"
+	          @click="updateData()"
 	        >
 	          保存问卷信息并进行下一步
 	        </el-button>	
@@ -65,24 +73,6 @@ export default {
 			})
 		},
 
-		// 保存或更新
-		saveOrUpdate() {
-			// 禁用保存按钮	
-			this.saveBtnDisabled = true
-
-			if (!this.questionnaire.id) {
-				// 调用新增
-				this.saveData();
-				this.$router.push({path:'/core/questionnaire/detail',query: {id: this.questionnaire.id}});
-			} else {
-				// 调用更新
-				this.updateData();
-				this.$router.push({path:'/core/questionnaire/detail',query: {id: this.questionnaire.id}});
-			}
-
-
-		},
-
 		saveData() {
 			questionnaireApi.save(this.questionnaire).then(response => {
 				this.$message.success(response.message)
@@ -93,7 +83,7 @@ export default {
 		updateData() {
 			questionnaireApi.updateById(this.questionnaire).then(response => {
 				this.$message.success(response.message)
-				this.$router.push('/core/questionnaire/list')
+				this.$router.push({path: '/core/questionnaire/detail/' + this.questionnaire.id});
 			})
 		}
 	}
