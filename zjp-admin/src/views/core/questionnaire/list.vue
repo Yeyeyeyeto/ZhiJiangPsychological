@@ -4,8 +4,8 @@
 	<el-table :data="list" border stripe>
 		<el-table-column type="index" width="50" />
 
-		<el-table-column prop="authorId" label="作者ID" />
-		<el-table-column prop="questionnaireName" label="问卷名称" />
+		<el-table-column prop="authorId" label="作者ID" width="140" />
+		<el-table-column prop="questionnaireName" label="问卷名称" width="500" />
 		<!-- <el-table-column prop="questionnaireType" label="问卷类型" /> -->
 		<el-table-column label="问卷类型" >
 			<template slot-scope="scope">
@@ -17,8 +17,8 @@
 			</template>>
 		</el-table-column>
 
-      <el-table-column prop="createTime" label="创建时间" width="170" />
-      <el-table-column prop="updateTime" label="更新时间" width="170" />
+      <el-table-column prop="createTime" label="创建时间" width="200" />
+      <el-table-column prop="updateTime" label="更新时间" width="200" />
 
 
 		<el-table-column label="操作">

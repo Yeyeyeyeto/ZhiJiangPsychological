@@ -1,7 +1,7 @@
 <template>
   <!--注册-->
-  <div class="wrap">
-    <div class="content">
+  <div class="wrap1">
+    <div class="content1">
       <div class="registerPage">
         <div v-if="step === 1" class="tdbModule register">
           <div class="registerTitle2">注册咨询师</div>

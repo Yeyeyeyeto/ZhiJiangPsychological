@@ -1,11 +1,11 @@
-.wrap {
+.wrap1 {
 	/*background-color: pink;*/
 	height: 569px;
 	position: relative;
 	margin: 0 auto;
 }
 
-.content {
+.content1 {
 	background-color: white;
 	width: 800px;
 	height: 400px;

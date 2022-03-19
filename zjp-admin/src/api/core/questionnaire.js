@@ -60,13 +60,13 @@ export default {
 		})
 	},
 
-	// approval(questionnaireApproval) {
-	// 	return request({
-	// 	  url: '/admin/core/questionnaire/approval',
-	// 	  method: 'post',
-	// 	  data: questionnaireApproval
-	// 	})
-	// }
+	detailsWhetherSubmit(questionnaireWhetherItemForm) {
+		return request({
+		  url: '/admin/core/questionnaire/whetherSubmit',
+		  method: 'post',
+		  data: questionnaireWhetherItemForm
+		})
+	}
 	
 }
 

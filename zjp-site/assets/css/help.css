@@ -67,3 +67,24 @@ body {
   font-weight: 700;
   line-height: 50px;
 }
+
+
+.protocol {
+  background-color: white;
+  width: 70%;
+  /*height: 1100px;*/
+  margin: 30px auto;
+  padding: 10px 50px;
+  border-radius: 6px;
+}
+.protocol h1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 50px auto;
+  text-align: center;
+}
+.protocol p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+

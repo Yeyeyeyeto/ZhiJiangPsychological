@@ -44,82 +44,75 @@
       </el-row>
     </el-form>
 
-<!--     <el-form v-if="borrower.status === '认证中'" label-width="170px">
-      <el-form-item label="是否通过">
-        <el-radio-group v-model="approvalForm.status">
-          <el-radio :label="2">
-            通过
-          </el-radio>
-          <el-radio :label="-1">
-            不通过
-          </el-radio>
-        </el-radio-group>
-      </el-form-item>
-
-      <el-form-item v-if="approvalForm.status == 2" label="基本信息积分">
-        <el-input v-model="approvalForm.infoIntegral" style="width: 140px;" />
-        <span style="color: indianred">（可获取30至100积分）</span>
-      </el-form-item> -->
-
-      <!-- 1 是否 -->
-      <el-form label-width="100px" class="form-table">
+    <!-- 1 是否 -->
+    <el-form v-if="questionnaire.questionnaireType == 1" ref="questionnaireWhetherItemForm" :inline="true" :model="questionnaireWhetherItemForm">
+      <div v-for="(item, index) in questionnaireWhetherItemForm" :key="index">
         <el-row>
           <el-col :span="2">
-            <el-form-item label="题号" >
-              {{ questionnaireItemForm.qid }}
+            <el-form-item label="题号" :prop="'questionnaireWhetherItemForm.' + index + '.questionNum'">
+              {{ item.questionNum }}
             </el-form-item>
           </el-col>
 
-          <el-col :span="">
-            <el-form-item label="题干">
-              <el-input v-model="questionnaireItemForm.qid" type='textarea' />
-            </el-form-item>  
+          <el-col :span="8">
+            <el-form-item label="题干" :prop="'questionnaireWhetherItemForm.' + index + '.questionTitle'">
+              <el-input v-model="item.questionTitle" class="input-text" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :span="5">
+            <el-form-item label="选是的分值" :prop="'questionnaireWhetherItemForm.' + index + '.trueScore'">
+              <el-input-number v-model="item.trueScore" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :span="5">
+            <el-form-item label="选否的分值" :prop="'questionnaireWhetherItemForm.' + index + '.falseScore'">
+              <el-input-number v-model="item.falseScore" />
+            </el-form-item>
           </el-col>
 
           <el-col :span="4">
-            <el-form-item label="选是的分值">
-              <el-input-number v-model="questionnaire.questionnaireType" />
-            </el-form-item>
-          </el-col>
-
-          <el-col :span="4">
-            <el-form-item label="选否的分值">
-              <el-input-number v-model="questionnaire.questionnaireType" />
+            <el-form-item>
+              <el-button v-if="index+1 == questionnaireWhetherItemForm.length" @click="addWhetherItem" type="primary">增加</el-button>
+              <el-button v-if="index !== 0" @click="deleteWhetherItem(item, index)" type="danger">删除</el-button>
             </el-form-item>
           </el-col>
         </el-row>
-
-        <el-row style="text-align:center">
-          <el-button @click="add">
-            增加
-          </el-button>
-        </el-row>
-      </el-form>
-
-      <!-- 2 单选 -->
-
-
-      <!-- 3 问答 -->
-
-
-      <!-- 4 多选 -->
-
-
-      <!-- 5 混合 -->
-
-
-      <el-row style="text-align:center">
-        <el-button type="primary" @click="approvalSubmit()">
-          确定
-        </el-button>
-      </el-row>
+      </div>
     </el-form>
+
+
+    <!-- 2 单选 -->
+
+
+    <!-- 3 问答 -->
+
+
+    <!-- 4 多选 -->
+
+
+    <!-- 5 混合 -->
+
+
+    <el-row style="text-align:center">
+      <el-button type="primary" @click="detailsWhetherSubmit()">
+        确定
+      </el-button>
+    </el-row>
+
   </div>
 </template>
 
 <style>
   .el-form {
     margin-bottom: 40px;
+  }
+  .margin-left40 {
+    margin-left: 40px;
+  }
+  .input-text input {
+    width: 400px;
   }
 </style>
 
@@ -131,21 +124,17 @@ export default {
   data() {
     return {
       questionnaire: {}, // 信息
-      // approvalForm: { // 审批表单
-      //   questionnaireId: 0,
-      //   status: 2,
-      //   content: '',
-      //   infoIntegral: 30,
-      //   isIdCardOk: false,
-      //   isHouseOk: false,
-      //   isCarOk: false
-      // }，
-      questionnaireItemForm: {
-        qSum: 0,
-        qItem: {
-          qid: 0
+      qSum: 1,
+      questionnaireWhetherItemForm: [
+        {
+          questionnaireId: 0,
+          questionNum: 1,  // 题号
+          questionTitle: "",  // 题干
+          trueScore: 0, // 选是的分值
+          falseScore: 0  // 选否的分值
         }
-      }
+      ]
+
     }
   },
 
@@ -158,23 +147,45 @@ export default {
   methods: {
     fetchDataById() {
       questionnaireApi.show(this.$route.params.id).then(response => {
-        this.questionnaire = response.data.questionnaireVO
+        this.questionnaire = response.data.questionnaireVO;
+        // this.questionnaireWhetherItemForm.qItem = response.data.questionnaireWhetherVO;
       })
     },
 
     back() {
-      // this.$router.push({path: '/core/questionnaire/list'})
-      this.$router.push('/core/questionnaire/list')
+      this.$router.push({path: '/core/questionnaire/edit/' + this.$route.params.id});
     },
 
-    approvalSubmit() {
-      this.saveBtnDisabled = true
-      this.approvalForm.questionnaireId = this.$route.params.id
-      questionnaireApi.approval(this.approvalForm).then(response => {
-        this.$message.success(response.message)
-        this.$router.push('/core/questionnaire/list')
+    addWhetherItem() {
+      this.qSum++;
+      this.questionnaireWhetherItemForm.push({
+          questionNum: this.qSum,  
+          questionTitle: "",
+          trueScore: 0, 
+          falseScore: 0  
+      });
+    },
+
+    deleteWhetherItem(item, index) {
+      this.qSum--;
+      this.questionnaireWhetherItemForm.splice(index, 1);
+      console.log(this.questionnaireWhetherItemForm, "删除");
+    },
+
+    detailsWhetherSubmit() {
+      this.questionnaireWhetherItemForm.questionnaireId = this.$route.params.id;
+      console.log(this.questionnaireWhetherItemForm[0]);
+
+      // for () {
+
+      // }
+
+      questionnaireApi.detailsWhetherSubmit(this.questionnaireWhetherItemForm).then(response => {
+        this.$message.success(response.message);
+        this.$router.push('/core/questionnaire/list');
       })
-    }
+    },
+
   }
 }
 </script>

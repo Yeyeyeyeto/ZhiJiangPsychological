@@ -19,7 +19,7 @@
       </el-form-item> -->
 
       <el-form-item label="结果说明">
-        <el-input v-model="questionnaire.result" type='textarea' />
+        <el-input v-model="questionnaire.result" type='textarea' style="resize:none;" autosize />
       </el-form-item>
 
       <el-form-item v-if="!questionnaire.id">
@@ -85,7 +85,7 @@ export default {
 				this.$message.success(response.message)
 				this.$router.push({path: '/core/questionnaire/detail/' + this.questionnaire.id});
 			})
-		}
+		},
 	}
 }
 </script>

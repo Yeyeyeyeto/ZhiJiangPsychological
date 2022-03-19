@@ -1,7 +1,7 @@
 <template>
   <!--登录-->
-  <div class="wrap">
-    <div class="content">
+  <div class="wrap1">
+    <div class="content1">
       <div class="tdbModule loginPage">
         <div class="registerTitle">咨询师登录</div>
         <div class="registerCont">

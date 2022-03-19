@@ -7,7 +7,9 @@ import com.eternal.common.result.R;
 import com.eternal.common.result.ResponseEnum;
 import com.eternal.zjp.core.pojo.entity.Questionnaire;
 import com.eternal.zjp.core.pojo.vo.QuestionnaireVO;
+import com.eternal.zjp.core.pojo.vo.QuestionnaireWhetherVO;
 import com.eternal.zjp.core.service.QuestionnaireService;
+import com.eternal.zjp.core.service.QuestionnaireWhetherService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -30,6 +32,9 @@ public class AdminQuestionnaireController {
 
     @Resource
     private QuestionnaireService questionnaireService;
+
+    @Resource
+    private QuestionnaireWhetherService questionnaireWhetherService;
 
     @ApiOperation("问卷列表")
     @GetMapping("/list")
@@ -130,5 +135,12 @@ public class AdminQuestionnaireController {
 //        borrowerService.approval(borrowerApprovalVO);
 //        return R.ok().message("审批完成");
 //    }
+
+    @ApiOperation("是否题详细题目提交")
+    @PostMapping("/whetherSubmit")
+    public R whetherSubmit (@RequestBody QuestionnaireWhetherVO questionnaireWhetherVO) {
+        System.out.println(questionnaireWhetherVO.toString());
+        return R.ok().message("提交成功");
+    }
 
 }
