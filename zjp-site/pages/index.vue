@@ -4,7 +4,7 @@
     <div class="container container-white">
     	<div class="psy-read">
     		<div class="main-title">
-    			<a href="#" class="common-a">
+    			<a href="/article" class="common-a">
     				<span class="psy-answer">心理阅读</span>
     			</a>
 	    		<span class="sub-title">心理学的世界等你来探索</span>

@@ -82,15 +82,54 @@ export const constantRoutes = [
         name: 'coreQuestionnaireEdit',
         component: () => import('@/views/core/questionnaire/form'),
         meta: { title: '编辑问卷' },
-        // hidden: trues
+        hidden: true
       },
       {
         path: 'detail/:id', // :id是一个占位符，表示这部分url会是任何一个id
         name: 'coreQuestionnaireDetail',
         component: () => import('@/views/core/questionnaire/detail'),
         meta: { title: '编辑问卷详情' },
-        // hidden: true
+        hidden: true
+      },
+      {
+        path: 'show/:id', // :id是一个占位符，表示这部分url会是任何一个id
+        name: 'coreQuestionnaireShow',
+        component: () => import('@/views/core/questionnaire/show'),
+        meta: { title: '查看问卷详情' },
+        hidden: true
       }
+    ]
+  },
+
+    {
+    path: '/core/article',
+    component: Layout,
+    redirect: '/core/article/list',
+    name: 'coreArticle',
+    meta: { title: '文章管理', icon: 'el-icon-s-marketing' },
+    // false（默认值）当且仅当父节点下只有一个子节点时，不显示父节点
+    // true 任何时候都显示父节点和子节点
+    alwaysShow: true,
+    children: [
+      {
+        path: 'list',
+        name: 'coreArticleList',  // 每个路由节点的name的名字不能相同
+        component: () => import('@/views/core/article/list'),  // 指向template模版组件
+        meta: { title: '文章列表' } // 定义导航的标题
+      },
+      {
+        path: 'create',
+        name: 'coreArticleCreate',
+        component: () => import('@/views/core/article/form'),
+        meta: { title: '新增文章' }
+      },
+      {
+        path: 'edit/:id', // :id是一个占位符，表示这部分url会是任何一个id
+        name: 'coreArticleEdit',
+        component: () => import('@/views/core/article/form'),
+        meta: { title: '编辑问卷' },
+        hidden: true
+      },
     ]
   },
 

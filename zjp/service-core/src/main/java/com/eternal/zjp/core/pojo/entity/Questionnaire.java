@@ -56,4 +56,7 @@ public class Questionnaire implements Serializable {
     @TableLogic
     private Boolean deleted;
 
+    @ApiModelProperty(value = "状态（0：正常 1：未完善）")
+    private Integer status;
+
 }

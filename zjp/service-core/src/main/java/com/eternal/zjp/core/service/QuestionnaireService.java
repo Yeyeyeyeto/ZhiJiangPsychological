@@ -19,4 +19,6 @@ public interface QuestionnaireService extends IService<Questionnaire> {
     QuestionnaireVO getQuestionnaireVOById(Integer id);
 
     IPage<Questionnaire> listPage(Page<Questionnaire> pageParam, String keyword);
+
+    int getQuestionItemNum(Integer id);
 }

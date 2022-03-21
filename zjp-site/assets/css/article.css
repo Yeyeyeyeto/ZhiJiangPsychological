@@ -1,0 +1,9 @@
+.article-content {
+	height: 200px;
+	background-color: white;
+	margin: 30px auto;
+	width: 70%;
+	border-radius: 14px;
+	padding: 10px 10px;
+}
+

@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.eternal.zjp.core.mapper.QuestionnaireMapper;
+import com.eternal.zjp.core.mapper.QuestionnaireWhetherMapper;
 import com.eternal.zjp.core.pojo.entity.Questionnaire;
 import com.eternal.zjp.core.pojo.vo.QuestionnaireVO;
 import com.eternal.zjp.core.service.QuestionnaireService;
@@ -27,6 +28,9 @@ public class QuestionnaireServiceImpl extends ServiceImpl<QuestionnaireMapper, Q
 
     @Resource
     private QuestionnaireMapper questionnaireMapper;
+
+    @Resource
+    private QuestionnaireWhetherMapper questionnaireWhetherMapper;
 
     @Override
     public QuestionnaireVO getQuestionnaireVOById(Integer id) {
@@ -83,5 +87,14 @@ public class QuestionnaireServiceImpl extends ServiceImpl<QuestionnaireMapper, Q
                 .orderByDesc("id");
 
         return baseMapper.selectPage(pageParam, questionnaireQueryWrapper);
+    }
+
+    @Override
+    public int getQuestionItemNum(Integer id) {
+
+        QueryWrapper queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("questionnaire_id", id);
+
+        return questionnaireWhetherMapper.selectList(queryWrapper).size();
     }
 }

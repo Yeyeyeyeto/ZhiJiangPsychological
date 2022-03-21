@@ -129,6 +129,26 @@ public class AdminQuestionnaireController {
         return R.ok().data("questionnaireVO", questionnaireVO);
     }
 
+    @ApiOperation("获取问卷详细条目数")
+    @GetMapping("/getItemNum/{id}")
+    public R getItemNum(
+            @ApiParam(value = "问卷id", required = true)
+            @PathVariable Integer id){
+
+        int questionItemNum = questionnaireService.getQuestionItemNum(id);
+        return R.ok().data("questionItemNum", questionItemNum);
+    }
+
+    @ApiOperation("获取问卷详细条目")
+    @GetMapping("/showDetails/{id}")
+    public R showDetails(
+            @ApiParam(value = "问卷条目id", required = true)
+            @PathVariable Integer id){
+
+        QuestionnaireWhetherVO questionnaireWhetherVO = questionnaireWhetherService.getQuestionnaireDetails(id);
+        return R.ok().data("questionnaireWhetherVO", questionnaireWhetherVO);
+    }
+
 //    @ApiOperation("借款额度审批")
 //    @PostMapping("/approval")
 //    public R approval(@RequestBody BorrowerApprovalVO borrowerApprovalVO) {
@@ -139,7 +159,12 @@ public class AdminQuestionnaireController {
     @ApiOperation("是否题详细题目提交")
     @PostMapping("/whetherSubmit")
     public R whetherSubmit (@RequestBody QuestionnaireWhetherVO questionnaireWhetherVO) {
-        System.out.println(questionnaireWhetherVO.toString());
+
+//        System.out.println(questionnaireWhetherVO.toString());
+        // QuestionnaireWhetherVO(questionnaireId=18, questionNum=1, questionTitle=tttttttttttttttttttttt, trueScore=1, falseScore=0)
+
+        questionnaireWhetherService.submit(questionnaireWhetherVO);
+
         return R.ok().message("提交成功");
     }
 

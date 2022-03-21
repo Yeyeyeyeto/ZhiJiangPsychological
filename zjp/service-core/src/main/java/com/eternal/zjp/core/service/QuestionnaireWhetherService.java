@@ -2,6 +2,7 @@ package com.eternal.zjp.core.service;
 
 import com.eternal.zjp.core.pojo.entity.QuestionnaireWhether;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.eternal.zjp.core.pojo.vo.QuestionnaireWhetherVO;
 
 /**
  * <p>
@@ -13,4 +14,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface QuestionnaireWhetherService extends IService<QuestionnaireWhether> {
 
+    void submit(QuestionnaireWhetherVO questionnaireWhetherVO);
+
+    QuestionnaireWhetherVO getQuestionnaireDetails(Integer id);
 }

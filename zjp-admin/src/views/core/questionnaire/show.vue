@@ -42,45 +42,33 @@
         </el-col>
       </el-row>
 
-      <el-row style="text-align:center">
-        <el-button @click="back">
-          返回
-        </el-button>
-      </el-row>
     </el-form>
 
     <!-- 1 是否 -->
-    <el-form v-if="questionnaire.questionnaireType == 1" ref="questionnaireWhetherItemForm" :inline="true" :model="questionnaireWhetherItemForm">
-      <div v-for="(item, index) in questionnaireWhetherItemForm" :key="index">
+    <el-form :inline="true">
+      <div v-for="questionnaireWhetherItem in questionnaireWhetherItemForm">
         <el-row>
           <el-col :span="2">
-            <el-form-item label="题号" :prop="'questionnaireWhetherItemForm.' + index + '.questionNum'">
-              {{ item.questionNum }}
+            <el-form-item label="题号">
+              {{ questionnaireWhetherItem.questionNum }}
             </el-form-item>
           </el-col>
 
           <el-col :span="8">
-            <el-form-item label="题干" :prop="'questionnaireWhetherItemForm.' + index + '.questionTitle'">
-              <el-input v-model="item.questionTitle" class="input-text" />
+            <el-form-item label="题干">
+              {{ questionnaireWhetherItem.questionTitle }}  
             </el-form-item>
           </el-col>
 
           <el-col :span="5">
-            <el-form-item label="选是的分值" :prop="'questionnaireWhetherItemForm.' + index + '.trueScore'">
-              <el-input-number v-model="item.trueScore" />
+            <el-form-item label="选是的分值">
+              {{ questionnaireWhetherItem.trueScore }}
             </el-form-item>
           </el-col>
 
           <el-col :span="5">
-            <el-form-item label="选否的分值" :prop="'questionnaireWhetherItemForm.' + index + '.falseScore'">
-              <el-input-number v-model="item.falseScore" />
-            </el-form-item>
-          </el-col>
-
-          <el-col :span="4">
-            <el-form-item>
-              <el-button v-if="index+1 == questionnaireWhetherItemForm.length" @click="addWhetherItem" type="primary">增加</el-button>
-              <el-button v-if="index !== 0" @click="deleteWhetherItem(item, index)" type="danger">删除</el-button>
+            <el-form-item label="选否的分值">
+              {{ questionnaireWhetherItem.falseScore }}
             </el-form-item>
           </el-col>
         </el-row>
@@ -101,16 +89,16 @@
 
 
     <el-row style="text-align:center">
-      <el-button type="primary" @click="detailsWhetherSubmit()">
-        确定
-      </el-button>
+        <el-button @click="back">
+          返回
+        </el-button>
     </el-row>
 
   </div>
 </template>
 
 <style>
-/*  .el-form {
+  .el-form {
     margin-bottom: 40px;
   }
   .margin-left40 {
@@ -118,7 +106,7 @@
   }
   .input-text input {
     width: 400px;
-  }*/
+  }
 </style>
 
 <script>
@@ -129,7 +117,7 @@ export default {
   data() {
     return {
       questionnaire: {}, // 信息
-      qSum: 1,
+      questionItemNum: 0,
       questionnaireWhetherItemForm: [
         {
           questionnaireId: 0,
@@ -149,16 +137,43 @@ export default {
     }
   },
 
+  mounted() {
+    if (this.$route.params.id) {
+      this.loadDetails()
+    }
+  },
+
   methods: {
     fetchDataById() {
       questionnaireApi.show(this.$route.params.id).then(response => {
         this.questionnaire = response.data.questionnaireVO;
-        // this.questionnaireWhetherItemForm.qItem = response.data.questionnaireWhetherVO;
-      })
+      });
+    },
+
+    loadDetails() {
+      questionnaireApi.getItemNum(this.$route.params.id).then(response => {
+        this.questionItemNum = response.data.questionItemNum;
+
+        // this.$set(this,'questionItemNum',response.data.questionItemNum);
+
+        console.log(this.questionItemNum);
+      });
+      console.log("--------" + this.questionItemNum)
+
+      for (var i = 0; i < this.questionItemNum; i++) {
+        questionnaireApi.showDetails(this.questionnaireWhetherItemForm[i].questionnaireId).then(response => {
+        this.questionnaireWhetherItemForm[i] = response.data.questionnaireWhetherVO;
+        });
+      };
+
+      for (var i = 0; i < this.questionItemNum; i++) {
+        console.log(questionnaireWhetherItemForm[i].questionTitle);
+      };
+
     },
 
     back() {
-      this.$router.push({path: '/core/questionnaire/edit/' + this.$route.params.id});
+      this.$router.push('/core/questionnaire/list');
     },
 
     addWhetherItem() {
@@ -175,20 +190,6 @@ export default {
       this.qSum--;
       this.questionnaireWhetherItemForm.splice(index, 1);
       console.log(this.questionnaireWhetherItemForm, "删除");
-    },
-
-    detailsWhetherSubmit() {
-      // this.questionnaireWhetherItemForm.questionnaireId = this.$route.params.id;
-      // console.log(this.questionnaireWhetherItemForm[0]);
-
-      for (var i = 0; i < this.questionnaireWhetherItemForm.length; i++) {
-        this.questionnaireWhetherItemForm[i].questionnaireId = this.$route.params.id;
-        questionnaireApi.detailsWhetherSubmit(this.questionnaireWhetherItemForm[i]);
-                    
-      }
-      
-      this.$message.success('提交成功');
-      this.$router.push('/core/questionnaire/list');
     },
 
   }

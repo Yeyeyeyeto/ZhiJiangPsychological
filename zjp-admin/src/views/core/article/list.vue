@@ -5,42 +5,17 @@
 		<el-table-column type="index" width="50" />
 
 		<el-table-column prop="authorId" label="作者ID" width="70" />
-		<el-table-column prop="id" label="问卷ID" width="70" />
-		<el-table-column prop="questionnaireName" label="问卷名称" width="500" />
-		<!-- <el-table-column prop="questionnaireType" label="问卷类型" /> -->
-		<el-table-column label="问卷类型" width="120" >
-			<template slot-scope="scope">
-				<span v-if="scope.row.questionnaireType === 1">是否题</span>
-				<span v-if="scope.row.questionnaireType === 2">单选题</span>
-				<span v-if="scope.row.questionnaireType === 3">问答题</span>
-				<span v-if="scope.row.questionnaireType === 4">多选题</span>
-				<span v-if="scope.row.questionnaireType === 5">混合题</span>
-			</template>>
-		</el-table-column>
+		<el-table-column prop="id" label="文章ID" width="70" />
+		<el-table-column prop="articleName" label="文章名称" width="700"  />
 
       <el-table-column prop="createTime" label="创建时间" width="180" />
       <el-table-column prop="updateTime" label="更新时间" width="180" />
-      <el-table-column label="问卷状态" width="120">
-        <template slot-scope="scope">
-          <el-tag v-if="scope.row.status === 1" type="danger" size="mini">
-            未完善
-          </el-tag>
-          <el-tag v-else type="success" size="mini">
-            正常
-          </el-tag>
-        </template>
-      </el-table-column>
 
 		<el-table-column label="操作">
 			<template slot-scope="scope">
-				<router-link v-if="scope.row.status === 1" :to="'/core/questionnaire/edit/' + scope.row.id" style="margin-right:5px;" >
+				<router-link :to="'/core/article/edit/' + scope.row.id" style="margin-right:5px;" >
 					<el-button type="primary" size="mini" icon="el-icon-edit">
 						修改
-					</el-button>
-				</router-link>
-				<router-link v-else :to="'/core/questionnaire/show/' + scope.row.id" style="margin-right:5px;" >
-					<el-button type="primary" size="mini" icon="el-icon-edit">
-						查看
 					</el-button>
 				</router-link>
 				<el-button type="danger" size="mini" icon="el-icon-delete" @click="removeById(scope.row.id)">删除</el-button>
@@ -51,7 +26,7 @@
 </template>
 
 <script>
-import questionnaireApi from '@/api/core/questionnaire'
+import articleApi from '@/api/core/article'
 export default {
 	// 定义数据模型
 	data() {
@@ -69,7 +44,7 @@ export default {
 	methods: {
 		fetchData() {
 			// 调用api
-			questionnaireApi.list().then(response => {
+			articleApi.list().then(response => {
 				this.list = response.data.list;
 			})
 		},
@@ -82,7 +57,7 @@ export default {
 		    type: 'warning'
 		  })
 		    .then(() => {
-		      return questionnaireApi.removeById(id)
+		      return articleApi.removeById(id)
 		    })
 		    .then(response => {
 		        this.$message.success(response.message)
