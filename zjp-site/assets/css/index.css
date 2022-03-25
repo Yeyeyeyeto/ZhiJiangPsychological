@@ -33,8 +33,8 @@
     line-height: 18px;
 }
 .content-read {
-	background-color: pink;
-	height: 200px;
+	/*background-color: pink;*/
+	/*height: 200px;*/
 	margin-top: 25px;
 }
 .content-test {
@@ -55,16 +55,27 @@
 	margin-top: 25px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.content-read tr {
+    float: left;
+    position: relative;
+}
+.content-read tr td {
+    float: left;
+    position: absolute;
+}
+.content-read .article-item {
+    background-color: #f9f9fa;
+    width: 400px;
+    height: 70px;
+    margin: 10px 70px;
+    padding: 12px 12px;
+}
+.content-read .article-item .article-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+}
+.content-read .article-item .article-time {
+    bottom: 10px;
+    right: 12px;
+ }

@@ -49,6 +49,8 @@
       </el-row>
     </el-form>
 
+    <br />
+
     <!-- 1 是否 -->
     <el-form v-if="questionnaire.questionnaireType == 1" ref="questionnaireWhetherItemForm" :inline="true" :model="questionnaireWhetherItemForm">
       <div v-for="(item, index) in questionnaireWhetherItemForm" :key="index">

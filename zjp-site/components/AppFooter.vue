@@ -10,10 +10,10 @@
   		<div class="info">
   			<div class="info-about">
 	  			<ul>
-	  				<li><a href="#">关于我们</a></li>
-	  				<li><a href="#">联系我们</a></li>
-	  				<li><a href="#">加入我们</a></li>
-	  				<li><a href="#">免责声明</a></li>
+	  				<li><a href="/about">关于我们</a></li>
+	  				<li><a href="/about/profile">联系我们</a></li>
+	  				<li><a href="/about/job">加入我们</a></li>
+	  				<li><a href="/about/notice">免责声明</a></li>
 	  			</ul>
   			</div>
   			<div class="info-zhijiang">

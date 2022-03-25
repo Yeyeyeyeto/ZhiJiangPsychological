@@ -1,48 +1,22 @@
 <template>
   <div class="text-box">
     <div class="text-content" id="text-content">
-      <h1 class="title">联系我们</h1>
+      <h1 class="title">公司简介</h1>
       <p class="mt20 cn_line">
-        如果您有任何意见或建议，欢迎通过邮件或电话联系我们。同时，欢迎您到我们公司参观或走访，来访前请先与我们的客服人员联系，我们将安排工作人员接见您的到来，感谢您对乐投贷的信任和支持！
+        枝江心理（www.zhijiangpsychological.com）为枝江市枝江心理有限公司旗下的互联网心理咨询与心理测评服务平台，创办于2020年。枝江市枝江心理有限公司是经工商行政管理局批准，专业从事心理业务的公司。<br />
       </p>
-      <div class="mt20 cn_line fl" style="width:50%;height:150px;">
-        <span
-          style="line-height:34px;font-family:Microsoft YaHei;color:#0aaae1;font-size:24px;"
-          >工作时间</span
-        ><br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客服热线: 400-000-0000<br />
-        <span style="padding-left:20px;font-size:12px;color:#888;"
-          >（上午 9:00--12：00 下午 14：00--17：30）</span
-        ><br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;意见、建议反馈邮箱：service@shangrongbao.com
-      </div>
-      <div class="mt20 cn_line fl" style="width:50%;height:150px;">
-        <span
-          style="line-height:34px;font-family:Microsoft YaHei;color:#0aaae1;font-size:24px;"
-          >商务合作部</span
-        ><br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;负责人：余先生<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系电话：400-000-0000<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电子邮箱：yuzhirong@shangrongbao.com
-      </div>
-      <div class="mt20 cn_line fl" style="width:50%;height:150px;">
-        <span
-          style="line-height:34px;font-family:Microsoft YaHei;color:#0aaae1;font-size:24px;"
-          >客户服务部</span
-        ><br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;负责人：赵小姐 <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系电话：400-000-0000 <br />
-      </div>
-      <div class="mt20 cn_line fl" style="width:50%;height:150px;">
-        <span
-          style="line-height:34px;font-family:Microsoft YaHei;color:#0aaae1;font-size:24px;"
-          >外联事务部</span
-        ><br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;负责人：林小姐 <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系电话：400-000-0000<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电子邮箱：linyingying@shangrongbao.com
-      </div>
-      <p></p>
+      <p class="cn_line mt20">
+        枝江心理（www.zhijiangpsychological.com）作为枝江市内实行用户与咨询师有效交流的互联网心理平台，旨在利用互联网技术，创新沟通，为大众心理患者提供安全、稳健、平民化的了解途径。<br />
+      </p>
+      <p class="cn_line mt20">
+        枝江心理致力于打造一个心理学平台，聚集国内新锐心理学人，输出健康、科学的心理学价值。在心理学中发现趣味，分享美好；为需要心理帮助的人提供在线解决方案，为心理机构提供展示、推广及服务平台；用有趣、有爱、实用的表达方式为社会、组织以及每一个人提供有价值的心理学服务。
+      </p>
+      <p class="cn_line mt20">
+        枝江心理2022年10月上线，一直专注于心理健康领域。枝江心理已拥有超过 1700 万的用户，6372 名心理专家、600 多位心理学专栏作者，和全国 792 家心理机构建立了紧密的合作关系。通过互联网的方式，把积极的心理学融入到通俗易懂的心理咨询、心理课程、心理测试、心理 FM 等应用中，帮助超过 5 亿人次走出心理困境，是国内专业的心理学服务平台。
+      </p>
+      <p class="cn_line mt20">
+        枝江心理主要内容有：心理杂志——为大众提供国内最新、最优质的心理学资讯、心理测试——为大众及组织提供趣味实用或专业的测试、心理咨询——连接大众和心理咨询师，提供在线解决方案。
+      </p>
     </div>
   </div>
 </template>

@@ -1,3 +1,0 @@
-2022-03-09 14:44:43 [INFO ] main StartupInfoLogger.java:55 com.eternal.zjp.core.ServiceCoreApplication Starting ServiceCoreApplication on DESKTOP-2NQJSAM with PID 22344 (D:\Data\Stuff\Java\Projects\ZhiJiangPsychological\zjp\service-core\target\classes started by Eternal in D:\Data\Stuff\Java\Projects\ZhiJiangPsychological\zjp)
-2022-03-09 14:44:43 [INFO ] main SpringApplication.java:655 com.eternal.zjp.core.ServiceCoreApplication The following profiles are active: dev
-2022-03-09 14:44:50 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.core.ServiceCoreApplication Started ServiceCoreApplication in 8.933 seconds (JVM running for 10.276)

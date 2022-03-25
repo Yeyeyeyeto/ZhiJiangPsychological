@@ -28,7 +28,7 @@
 
               <li class="agree">
                 <input type="checkbox" checked />
-                我同意《<NuxtLink to="#" target="_black">枝江心理注册协议</NuxtLink>》
+                我同意《<NuxtLink to="/protocol" target="_black">枝江心理注册协议</NuxtLink>》
               </li>
               <li class="btn">
                 <button @click="register()">

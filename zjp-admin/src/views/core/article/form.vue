@@ -75,7 +75,7 @@ export default {
 		updateData() {
 			articleApi.updateById(this.article).then(response => {
 				this.$message.success(response.message)
-				this.$router.push({path: '/core/article/detail/' + this.article.id});
+				this.$router.push('/core/article/list')
 			})
 		},
 	}

@@ -1,16 +1,49 @@
 <template>
   <div class="text-box">
     <div class="text-content" id="text-content">
-      <h1 class="title">公司简介</h1>
+      <h1 class="title">关于我们</h1>
       <p class="mt20 cn_line">
-        尚融宝（www.shangrongbao.com）为北京市尚融宝投资管理有限公司旗下的互联网金融服务平台，创办于2020年。北京市尚融宝投资管理有限公司是经工商行政管理局批准，专业从事“金融服务”业务的公司。<br />
+        如果您有任何意见或建议，欢迎通过邮件或电话联系我们。同时，欢迎您到我们公司参观或走访，来访前请先与我们的客服人员联系，我们将安排工作人员接见您的到来，感谢您对乐投贷的信任和支持！
       </p>
-      <p class="cn_line mt20">
-        尚融宝（www.shangrongbao.com）作为北京市内实行真正资金第三方托管的互联网金融平台，旨在利用互联网技术，创新金融产品与服务，为大众投资者提供安全、稳健、平民化的理财途径，为中小微企业及创业个人提供快速、便捷、低成本的融资渠道。通过互联网与传统金融相结合，扶持中小微企业成长，助力地方实体经济，推动金融创新。<br />
-      </p>
-      <p class="cn_line mt20">
-        在互联网金融发展迅猛的今天，尚融宝经营团队凭借在银行业多年的从业经验，坚持走差异化路线，立足本土市场，突出行业特色，坚持信贷投向与当地最具潜力的产业和最有发展前景的实业挂钩。通过完善的信用评估及风控体系，尚融宝真正做到安全、透明、专业，在使信贷业务长期、稳健、可持续发展的同时，让“大众金融快捷定制”的目标得以实现。
-      </p>
+      <br>
+      <div class="mt20 cn_line fl" style="width:50%;height:150px;">
+        <span
+          style="line-height:34px;font-family:Microsoft YaHei;color:#000;font-size:24px;"
+          >工作时间</span
+        ><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客服热线: 672-328-094<br />
+        <span style="padding-left:20px;font-size:12px;color:#888;"
+          >（上午 9:00--12：00 下午 14：00--17：30）</span
+        ><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;意见、建议反馈邮箱：zjp_official@zhijiang.com
+      </div>
+      <div class="mt20 cn_line fl" style="width:50%;height:150px;">
+        <span
+          style="line-height:34px;font-family:Microsoft YaHei;color:#000;font-size:24px;"
+          >商务合作部</span
+        ><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;负责人：王小姐<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系电话：672-328-094<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电子邮箱：zjp_official@zhijiang.com
+      </div>
+      <div class="mt20 cn_line fl" style="width:50%;height:150px;">
+        <span
+          style="line-height:34px;font-family:Microsoft YaHei;color:#000;font-size:24px;"
+          >客户服务部</span
+        ><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;负责人：杜小姐 <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系电话：672-328-094 <br />
+      </div>
+      <div class="mt20 cn_line fl" style="width:50%;height:150px;">
+        <span
+          style="line-height:34px;font-family:Microsoft YaHei;color:#000;font-size:24px;"
+          >外联事务部</span
+        ><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;负责人：陈小姐 <br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系电话：672-328-094<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电子邮箱：zjp_official@zhijiang.com
+      </div>
+      <p></p>
     </div>
   </div>
 </template>

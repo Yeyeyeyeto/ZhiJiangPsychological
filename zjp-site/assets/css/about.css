@@ -188,10 +188,10 @@
   float: right;
 }
 .text-nav li.selected .text-link {
-  border-left: 2px solid #15aee2;
+  border-left: 2px solid #E799B0;
 }
 .text-nav li .text-link:hover {
-  border-left: 2px solid #15aee2;
+  border-left: 2px solid #E799B0;
 }
 .text-box {
   margin-left: 20px;
@@ -208,8 +208,8 @@
   padding: 35px;
 }
 .text-box .text-content h1.title {
-  border-bottom: 1px solid #15aae1;
-  color: #15aae1;
+  border-bottom: 1px solid #E799B0;
+  color: #E799B0;
   font-size: 18px;
   font-weight: 700;
   line-height: 48px;
@@ -218,7 +218,7 @@
 .text-box .text-content h2 {
   font-weight: 500;
   font-size: 16px;
-  color: #15aae1;
+  color: #E799B0;
   text-indent: 2em;
 }
 .text-box .text-content .cn_line {
@@ -262,7 +262,7 @@
   float: right;
 }
 .partner .partner-item .text h5 {
-  border-bottom: 1px solid #15aae1;
+  border-bottom: 1px solid #E799B0;
   font-size: 18px;
   margin-bottom: 5px;
   padding-bottom: 5px;
@@ -283,7 +283,7 @@
   color: #595757;
 }
 .new-list .list-item a:hover {
-  color: #15aae1;
+  color: #E799B0;
 }
 .new-list .list-item span {
   display: block;
@@ -530,7 +530,7 @@
   width: 35px;
 }
 .page .pages span.currents {
-  background: none repeat scroll 0 0 #15aae1;
+  background: none repeat scroll 0 0 #E799B0;
   color: #fff;
 }
 .page .pages a {

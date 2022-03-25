@@ -10,7 +10,14 @@
 	    		<span class="sub-title">心理学的世界等你来探索</span>
     		</div>
     	</div>
-    	<div class="content-read"></div>
+    	<div class="content-read">
+            <tbody>
+                <tr  class="article-item" v-for="(articleItem, index) in articleItemList" v-if="index<10" :key="articleItem.id">
+                    <td class="article-name"><NuxtLink :to="'/article/' + articleItem.id">{{ articleItem.articleName }}</NuxtLink></td>
+                    <td class="article-time">{{ articleItem.updateTime }}</td>
+                </tr>
+            </tbody>   
+        </div>
     </div>
 
   	<!-- 心理测试 -->
@@ -58,6 +65,28 @@
 
 <script>
 import '~/assets/css/index.css'
+import '~/assets/css/article.css'
 
-export default {}
+
+export default {
+  async asyncData({ $axios, params }) {
+    //投资记录
+    let responseArticleItemList = await $axios.$get(
+      '/admin/core/article/list'
+    )
+
+    return {
+      articleItemList: responseArticleItemList.data.list, //投资记录      
+    }
+  },
+
+  data() {
+    return {
+    }
+  },
+
+  methods: {
+    
+  }
+}
 </script>
