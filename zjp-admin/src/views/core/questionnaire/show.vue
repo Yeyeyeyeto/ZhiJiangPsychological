@@ -45,35 +45,12 @@
     </el-form>
 
     <!-- 1 是否 -->
-    <el-form :inline="true">
-      <div v-for="questionnaireWhetherItem in questionnaireWhetherItemForm">
-        <el-row>
-          <el-col :span="2">
-            <el-form-item label="题号">
-              {{ questionnaireWhetherItem.questionNum }}
-            </el-form-item>
-          </el-col>
-
-          <el-col :span="8">
-            <el-form-item label="题干">
-              {{ questionnaireWhetherItem.questionTitle }}  
-            </el-form-item>
-          </el-col>
-
-          <el-col :span="5">
-            <el-form-item label="选是的分值">
-              {{ questionnaireWhetherItem.trueScore }}
-            </el-form-item>
-          </el-col>
-
-          <el-col :span="5">
-            <el-form-item label="选否的分值">
-              {{ questionnaireWhetherItem.falseScore }}
-            </el-form-item>
-          </el-col>
-        </el-row>
-      </div>
-    </el-form>
+    <el-table :data="itemList">
+      <el-table-column prop="questionNum" label="题号"/>
+      <el-table-column prop="questionTitle" label="题干" />
+      <el-table-column prop="trueScore" label="是的分值" />
+      <el-table-column prop="falseScore" label="否的分值" />
+    </el-table>
 
 
     <!-- 2 单选 -->
@@ -89,6 +66,7 @@
 
 
     <el-row style="text-align:center">
+        <br>
         <el-button @click="back">
           返回
         </el-button>
@@ -116,8 +94,8 @@ import questionnaireApi from '@/api/core/questionnaire'
 export default {
   data() {
     return {
+      itemList: [],
       questionnaire: {}, // 信息
-      questionItemNum: 0,
       questionnaireWhetherItemForm: [
         {
           questionnaireId: 0,
@@ -138,9 +116,7 @@ export default {
   },
 
   mounted() {
-    if (this.$route.params.id) {
-      this.loadDetails()
-    }
+    
   },
 
   methods: {
@@ -148,28 +124,9 @@ export default {
       questionnaireApi.show(this.$route.params.id).then(response => {
         this.questionnaire = response.data.questionnaireVO;
       });
-    },
-
-    loadDetails() {
-      questionnaireApi.getItemNum(this.$route.params.id).then(response => {
-        this.questionItemNum = response.data.questionItemNum;
-
-        // this.$set(this,'questionItemNum',response.data.questionItemNum);
-
-        console.log(this.questionItemNum);
-      });
-      console.log("--------" + this.questionItemNum)
-
-      for (var i = 0; i < this.questionItemNum; i++) {
-        questionnaireApi.showDetails(this.questionnaireWhetherItemForm[i].questionnaireId).then(response => {
-        this.questionnaireWhetherItemForm[i] = response.data.questionnaireWhetherVO;
-        });
-      };
-
-      for (var i = 0; i < this.questionItemNum; i++) {
-        console.log(questionnaireWhetherItemForm[i].questionTitle);
-      };
-
+      questionnaireApi.showDetails(this.$route.params.id).then(response => {
+        this.itemList = response.data.itemList;
+      })
     },
 
     back() {

@@ -68,13 +68,6 @@ export default {
 		})
 	},
 	
-	getItemNum(id) {
-		return request({
-		  url: `/admin/core/questionnaire/getItemNum/${id}`,
-		  method: 'get'
-		})
-	},
-
 	showDetails(id) {
 		return request({
 		  url: `/admin/core/questionnaire/showDetails/${id}`,

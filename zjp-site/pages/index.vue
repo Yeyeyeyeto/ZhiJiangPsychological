@@ -48,7 +48,7 @@
 
 
   	<!-- 心理问答 -->
-    <div class="container container-white">
+<!--     <div class="container container-white">
     	<div class="psy-askanswer">
     		<div class="main-title">
     			<a href="#" class="common-a">
@@ -58,7 +58,7 @@
     		</div>
     	</div>
     	<div class="content-skanswer"></div>
-    </div>
+    </div> -->
 
   </main>
 </template>

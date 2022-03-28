@@ -330,3 +330,11 @@ Caused by: java.lang.NumberFormatException: For input string: "article"
 	... 47 common frames omitted
 2022-03-25 14:44:20 [INFO ] main SpringApplication.java:655 com.eternal.zjp.core.ServiceCoreApplication The following profiles are active: dev
 2022-03-25 14:44:41 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.core.ServiceCoreApplication Started ServiceCoreApplication in 26.263 seconds (JVM running for 30.991)
+2022-03-28 14:18:03 [INFO ] main SpringApplication.java:655 com.eternal.zjp.core.ServiceCoreApplication The following profiles are active: dev
+2022-03-28 14:18:24 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.core.ServiceCoreApplication Started ServiceCoreApplication in 28.781 seconds (JVM running for 33.099)
+2022-03-28 14:58:47 [INFO ] main SpringApplication.java:655 com.eternal.zjp.core.ServiceCoreApplication The following profiles are active: dev
+2022-03-28 14:59:00 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.core.ServiceCoreApplication Started ServiceCoreApplication in 17.008 seconds (JVM running for 18.396)
+2022-03-28 15:18:07 [INFO ] main SpringApplication.java:655 com.eternal.zjp.core.ServiceCoreApplication The following profiles are active: dev
+2022-03-28 15:18:19 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.core.ServiceCoreApplication Started ServiceCoreApplication in 17.185 seconds (JVM running for 18.593)
+2022-03-28 15:19:23 [INFO ] main SpringApplication.java:655 com.eternal.zjp.core.ServiceCoreApplication The following profiles are active: dev
+2022-03-28 15:19:36 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.core.ServiceCoreApplication Started ServiceCoreApplication in 18.67 seconds (JVM running for 20.667)

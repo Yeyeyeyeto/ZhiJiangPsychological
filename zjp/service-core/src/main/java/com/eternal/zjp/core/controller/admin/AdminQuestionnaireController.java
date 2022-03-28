@@ -1,11 +1,13 @@
 package com.eternal.zjp.core.controller.admin;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.eternal.common.exception.BusinessException;
 import com.eternal.common.result.R;
 import com.eternal.common.result.ResponseEnum;
 import com.eternal.zjp.core.pojo.entity.Questionnaire;
+import com.eternal.zjp.core.pojo.entity.QuestionnaireWhether;
 import com.eternal.zjp.core.pojo.vo.QuestionnaireVO;
 import com.eternal.zjp.core.pojo.vo.QuestionnaireWhetherVO;
 import com.eternal.zjp.core.service.QuestionnaireService;
@@ -129,42 +131,22 @@ public class AdminQuestionnaireController {
         return R.ok().data("questionnaireVO", questionnaireVO);
     }
 
-    @ApiOperation("获取问卷详细条目数")
-    @GetMapping("/getItemNum/{id}")
-    public R getItemNum(
-            @ApiParam(value = "问卷id", required = true)
-            @PathVariable Integer id){
-
-        int questionItemNum = questionnaireService.getQuestionItemNum(id);
-        return R.ok().data("questionItemNum", questionItemNum);
-    }
-
-    @ApiOperation("获取问卷详细条目")
+    @ApiOperation("问卷详情列表")
     @GetMapping("/showDetails/{id}")
     public R showDetails(
             @ApiParam(value = "问卷条目id", required = true)
-            @PathVariable Integer id){
-
-        QuestionnaireWhetherVO questionnaireWhetherVO = questionnaireWhetherService.getQuestionnaireDetails(id);
-        return R.ok().data("questionnaireWhetherVO", questionnaireWhetherVO);
+            @PathVariable Integer id) {
+        QueryWrapper<QuestionnaireWhether> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("questionnaire_id", id).orderByAsc("question_num");
+        List<QuestionnaireWhether> itemList = questionnaireWhetherService.list(queryWrapper);
+        return R.ok().data("itemList", itemList);
     }
 
-//    @ApiOperation("借款额度审批")
-//    @PostMapping("/approval")
-//    public R approval(@RequestBody BorrowerApprovalVO borrowerApprovalVO) {
-//        borrowerService.approval(borrowerApprovalVO);
-//        return R.ok().message("审批完成");
-//    }
 
     @ApiOperation("是否题详细题目提交")
     @PostMapping("/whetherSubmit")
     public R whetherSubmit (@RequestBody QuestionnaireWhetherVO questionnaireWhetherVO) {
-
-//        System.out.println(questionnaireWhetherVO.toString());
-        // QuestionnaireWhetherVO(questionnaireId=18, questionNum=1, questionTitle=tttttttttttttttttttttt, trueScore=1, falseScore=0)
-
         questionnaireWhetherService.submit(questionnaireWhetherVO);
-
         return R.ok().message("提交成功");
     }
 
