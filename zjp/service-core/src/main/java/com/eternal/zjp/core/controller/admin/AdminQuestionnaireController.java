@@ -131,7 +131,7 @@ public class AdminQuestionnaireController {
         return R.ok().data("questionnaireVO", questionnaireVO);
     }
 
-    @ApiOperation("问卷详情列表")
+    @ApiOperation("是否型问卷详情列表")
     @GetMapping("/showDetails/{id}")
     public R showDetails(
             @ApiParam(value = "问卷条目id", required = true)

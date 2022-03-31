@@ -24,8 +24,8 @@
     <div class="container container-white">
     	<div class="psy-test">
     		<div class="main-title">
-    			<a href="#" class="common-a">
-    				<span class="psy-answer">心理测试</span>
+    			<a href="/questionnaire" class="common-a">
+    				<span class="psy-answer">心理问卷</span>
     			</a>
     			<span class="sub-title">认识自我 了解他人</span>
     		</div>    		
