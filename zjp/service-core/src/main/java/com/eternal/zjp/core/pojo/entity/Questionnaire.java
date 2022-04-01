@@ -40,6 +40,9 @@ public class Questionnaire implements Serializable {
     @ApiModelProperty(value = "问卷类型（1 是否；2 单选；3 问答；4 多选；5 混合）")
     private Integer questionnaireType;
 
+    @ApiModelProperty(value = "问卷简介")
+    private String questionnaireIntro;
+
     @ApiModelProperty(value = "结果说明")
     private String result;
 

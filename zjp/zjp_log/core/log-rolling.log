@@ -852,3 +852,7 @@ Caused by: java.net.ConnectException: Connection refused: connect
 	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155)
 	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65)
 	... 98 common frames omitted
+2022-04-01 14:08:11 [INFO ] main SpringApplication.java:655 com.eternal.zjp.core.ServiceCoreApplication The following profiles are active: dev
+2022-04-01 14:08:31 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.core.ServiceCoreApplication Started ServiceCoreApplication in 26.477 seconds (JVM running for 31.18)
+2022-04-01 14:48:35 [INFO ] main SpringApplication.java:655 com.eternal.zjp.core.ServiceCoreApplication The following profiles are active: dev
+2022-04-01 14:48:55 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.core.ServiceCoreApplication Started ServiceCoreApplication in 24.517 seconds (JVM running for 26.541)

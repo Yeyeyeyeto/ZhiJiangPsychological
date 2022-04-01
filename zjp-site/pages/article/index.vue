@@ -9,7 +9,7 @@
 					<tr  class="article-item" v-for="articleItem in articleItemList" :key="articleItem.id">
 						<td class="article-name"><NuxtLink :to="'/article/' + articleItem.id">{{ articleItem.articleName }}</NuxtLink></td>
 						<td class="article-text">{{ articleItem.articleText }}</td>
-						<td class="article-id">{{ articleItem.authorId }}</td>
+            <td class="article-id" v-if="articleItem.authorId==0">枝江心理官方</td>
 						<td class="article-time">{{ articleItem.updateTime }}</td>
 					</tr>
 				</tbody>

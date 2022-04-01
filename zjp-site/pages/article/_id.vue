@@ -9,7 +9,7 @@
         {{ articleItem.articleText }}
       </div>
       <div class="article-item-info">
-        <div class="article-item-info-name">{{ articleItem.authorId }}</div>
+        <div class="article-item-info-name" v-if="articleItem.authorId==0">枝江心理官方</div>
         <div class="article-itme-info-time">{{ articleItem.updateTime }}</div>
       </div>
 

@@ -6,9 +6,10 @@
         </div>
 			<table width="100%">
 				<tbody>
-					<tr  class="questionnaire-item" v-for="questionnaireItem in questionnaireItemList" :key="questionnaireItem.id">
+					<tr  class="questionnaire-item" v-for="questionnaireItem in questionnaireItemList" :key="questionnaireItem.id" v-if="questionnaireItem.status == 0">
             <td class="questionnaire-name"><NuxtLink :to="'/questionnaire/' + questionnaireItem.id">{{ questionnaireItem.questionnaireName }}</NuxtLink></td>
-            <td class="questionnaire-id">{{ questionnaireItem.authorId }}</td>
+            <td class="questionnaire-text">{{ questionnaireItem.questionnaireIntro }}</td>
+            <td class="questionnaire-id" v-if="questionnaireItem.authorId==0">枝江心理官方</td>
             <td class="questionnaire-time">{{ questionnaireItem.updateTime }}</td>
 					</tr>
 				</tbody>

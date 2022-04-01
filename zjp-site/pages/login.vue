@@ -6,13 +6,7 @@
         <div class="registerTitle">用户登录</div>
         <div class="registerCont">
           <ul>
-            <li><!-- 
-              <span class="dis"></span>
-              <input v-model="userInfo.userType" type="radio" value="1" />
-              投资人
-              <input v-model="userInfo.userType" type="radio" value="2" />
-              借款人
-            </li> -->
+            <li>
             <li>
               <!-- <span class="dis">手机号：</span> -->
               <input class="input" v-model="user.mobile" placeholder="手机号码" />

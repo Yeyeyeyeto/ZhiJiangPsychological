@@ -6,9 +6,9 @@
 
 		<el-table-column prop="authorId" label="作者ID" width="70" />
 		<el-table-column prop="id" label="问卷ID" width="70" />
-		<el-table-column prop="questionnaireName" label="问卷名称" width="500" />
-		<!-- <el-table-column prop="questionnaireType" label="问卷类型" /> -->
-		<el-table-column label="问卷类型" width="120" >
+		<el-table-column prop="questionnaireName" label="问卷名称" width="300" />
+		<el-table-column prop="questionnaireIntro" label="问卷简介" :show-overflow-tooltip="true" />
+		<el-table-column label="问卷类型" width="100" >
 			<template slot-scope="scope">
 				<span v-if="scope.row.questionnaireType === 1">是否题</span>
 				<span v-if="scope.row.questionnaireType === 2">单选题</span>
@@ -18,8 +18,8 @@
 			</template>>
 		</el-table-column>
 
-      <el-table-column prop="createTime" label="创建时间" width="180" />
-      <el-table-column prop="updateTime" label="更新时间" width="180" />
+      <el-table-column prop="createTime" label="创建时间" width="150" />
+      <el-table-column prop="updateTime" label="更新时间" width="150" />
       <el-table-column label="问卷状态" width="120">
         <template slot-scope="scope">
           <el-tag v-if="scope.row.status === 1" type="danger" size="mini">
@@ -30,8 +30,7 @@
           </el-tag>
         </template>
       </el-table-column>
-
-		<el-table-column label="操作">
+		<el-table-column label="操作" width="200">
 			<template slot-scope="scope">
 				<router-link v-if="scope.row.status === 1" :to="'/core/questionnaire/edit/' + scope.row.id" style="margin-right:5px;" >
 					<el-button type="primary" size="mini" icon="el-icon-edit">

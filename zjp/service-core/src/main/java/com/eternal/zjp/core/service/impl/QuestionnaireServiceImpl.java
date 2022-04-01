@@ -83,6 +83,7 @@ public class QuestionnaireServiceImpl extends ServiceImpl<QuestionnaireMapper, Q
         questionnaireQueryWrapper
                 .like("questionnaire_name", keyword)
                 .or().like("questionnaire_type", keyword)
+                .or().like("questionnaire_intro", keyword)
                 .or().like("author_id", keyword)
                 .orderByDesc("id");
 

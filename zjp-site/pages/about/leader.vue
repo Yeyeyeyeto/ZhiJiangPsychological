@@ -3,7 +3,7 @@
     <div class="text-content" id="text-content">
       <h1 class="title">管理团队</h1>
       <p class="mt20 cn_line">
-        枝江心理创始团队专注心理学超过12年，建立了一支专业的编辑及运营队伍，超过50%的成员是心理学学士、硕士或博士。依靠团队的努力，壹心理获得了众多的荣誉与肯定。
+        枝江心理创始团队专注心理学超过12年，建立了一支专业的编辑及运营队伍，超过50%的成员是心理学学士、硕士或博士。依靠团队的努力，枝江心理获得了众多的荣誉与肯定。
       </p>
       <div
         style="padding:20px 0;border-bottom:1px dashed #dbdbdb"

@@ -14,6 +14,10 @@
         <el-input-number v-model="questionnaire.questionnaireType" :min="0" :max="5" />
       </el-form-item>
 
+      <el-form-item label="问卷简介">
+        <el-input v-model="questionnaire.questionnaireIntro" type='textarea' style="resize:none;" autosize />
+      </el-form-item>
+
 	  <!-- <el-form-item label="问卷类型">
         <el-input-inner v-model="questionnaire.questionnaireType" />
       </el-form-item> -->

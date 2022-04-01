@@ -25,14 +25,19 @@
       </el-row>
 
       <el-row>
-        <el-col :span="6">
+        <el-col :span="3">
           <el-form-item label="问卷名称">
             {{ questionnaire.questionnaireName }}
           </el-form-item>
         </el-col>
-        <el-col :span="6">
+        <el-col :span="3">
           <el-form-item label="问卷类型">
             {{ questionnaire.questionnaireType }}
+          </el-form-item>
+        </el-col>
+        <el-col :span="8">
+          <el-form-item label="结果说明">
+            {{ questionnaire.questionnaireIntro }}
           </el-form-item>
         </el-col>
         <el-col :span="6">

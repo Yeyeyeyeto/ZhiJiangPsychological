@@ -4,6 +4,7 @@
 	width: 35%;
 	border-radius: 14px;
 	padding: 50px 40px;
+	min-height: 500px;
 }
 
 .questionnaire-content .questionnaire-title h1 {
@@ -45,10 +46,12 @@
 .questionnaire-content tr .questionnaire-id {
 	bottom: 14px;
 	left: 35px;
+	font-size: 12px;
 }
 .questionnaire-content tr .questionnaire-time {
 	bottom: 14px;
 	right: 60px;
+	font-size: 12px;
 }
 
 
@@ -72,7 +75,8 @@
 	margin: 30px 360px;
 	width: 50%;
 	border-radius: 14px;
-	padding: 60px 40px;
+	padding: 80px 40px;
+	padding-top: 60px;
 }
 .questionnaire-item-content .questionnaire-title h1 {
 	font-size: 20px;
@@ -81,15 +85,69 @@
 .questionnaire-item-content .questionnaire-title h3 {
 	font-size: 16px;
 	margin: 30px 0px; 
-	margin-bottom: 0px;
+	margin-bottom: 20px;
 	font-weight: 600;
 
 }
 .questionnaire-item-content-text {
 	margin: 20px 0px;
 	white-space: pre-wrap;
+	line-height: 24px;
 }
 .questionnaire-item-info div {
 	float: left;
 	margin-right: 16px;
+	margin-top: 30px;
 }
+
+
+
+
+
+.questionnaire-item-content .question-item {
+	margin: 30px 0px;
+	font-size: 16px;
+}
+
+
+.qiestionnaire-submit-btn {
+	/* 文字颜色 */
+	color: #0099CC; 
+	/* 清除背景色 */
+	background: transparent; 
+	/* 边框样式、颜色、宽度 */
+	border: 2px solid #0099CC;
+	/* 给边框添加圆角 */
+	border-radius: 6px; 
+	/* 字母转大写 */
+	border: none;
+	color: white;
+	padding: 10px 30px;
+	text-align: center;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	cursor: pointer;
+	text-decoration: none;
+	text-transform: uppercase;
+	margin: 10px auto;
+}
+.qiestionnaire-submit-btn {
+	background-color: white; 
+	color: black; 
+	border: 2px solid #E799B0;
+}
+/* 悬停样式 */
+.qiestionnaire-submit-btn:hover {
+	background-color: #E799B0;
+	color: white;
+}
+
+.questionnaire-text {
+	line-height: 24px;
+}
+
+
+

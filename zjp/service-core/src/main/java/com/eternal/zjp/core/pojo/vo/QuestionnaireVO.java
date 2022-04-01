@@ -25,14 +25,14 @@ public class QuestionnaireVO {
     @ApiModelProperty(value = "更新时间")
     private LocalDateTime updateTime;
 
-
     @ApiModelProperty(value = "问卷名称")
     private String questionnaireName;
 
+    @ApiModelProperty(value = "问卷简介")
+    private String questionnaireIntro;
 
     @ApiModelProperty(value = "问卷类型")
     private Integer questionnaireType;
-
 
     @ApiModelProperty(value = "结果说明")
     private String result;

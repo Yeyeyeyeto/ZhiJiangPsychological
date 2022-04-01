@@ -1,0 +1,48 @@
+.questionnaire-result {
+	background-color: white;
+	margin: 30px 380px;
+	width: 43%;
+	border-radius: 14px;
+	padding: 50px 100px;
+	min-height: 409px;
+}
+.questionnaire-result-score {
+	/*background-color: pink;*/
+	min-width: 200px;
+	min-height: 200px;
+}
+.questionnaire-result-score img {
+	float: left;
+	margin-left: 110px;
+	margin-right: 30px;
+}
+.questionnaire-result-score p {
+	float: left;
+	line-height: 200px;
+	font-size: 20px;
+	font-weight: 700;
+	color: #E799B0;
+}
+.question-result-text {
+	/*background-color: pink;*/
+	margin: 30px 0px;
+	line-height: 24px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
