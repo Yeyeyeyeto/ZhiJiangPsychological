@@ -14,11 +14,22 @@
             <span :prop="'questionItem' + index + 'questionNum'">{{ item.questionNum }}.</span> 
             {{ item.questionTitle }}
             <br><br>
-            <input type="radio" :name="'questionItemRadio' + index" :value="1" :id="'questionRadio' + index + 't'"/><label :for="'questionRadio' + index + 't'">是</label>
-            <input type="radio" :name="'questionItemRadio' + index" :value="0" :id="'questionRadio' + index + 'f'"/><label :for="'questionRadio' + index + 'f'">否</label>            
+            <input type="radio" 
+                  :name="'questionItemRadio' + index" 
+                  :id="'questionRadio' + index + 't'"
+                  @click="radioItemChange(index, 1)"
+                  />
+                  <label :for="'questionRadio' + index + 't'">是</label>
+
+            <input type="radio" 
+                  :name="'questionItemRadio' + index" 
+                  :id="'questionRadio' + index + 'f'"
+                  @click="radioItemChange(index, 0)"
+                  />
+                  <label :for="'questionRadio' + index + 'f'">否</label>            
           </li>
         </ul>
-        <button class="questionnaire-submit-btn" @click="submit()">完成</button>
+        <button class="questionnaire-submit-btn" @click="submit(questionnaireItem.id)">完成</button>
       </div>      
 
       <div class="questionnaire-item-info">
@@ -34,7 +45,7 @@
 import '~/assets/css/questionnaire.css'
 
 export default {
-    async asyncData({ $axios, params }) {
+  async asyncData({ $axios, params }) {
       let questionnaireId = params.id;
       let response = await $axios.$get('/admin/core/questionnaire/get/' + questionnaireId);
       let question = await $axios.$get('/admin/core/questionnaire/showDetails/' + questionnaireId);
@@ -47,23 +58,36 @@ export default {
 
   data() {
     return {
-      score: [{
-
-      }]
+      score: [
+        {vaule: '1'}
+      ],
+      radioList: [
+      ]
     }
   },
 
   //此时方法在客户端的浏览器中执行，可以获取到cookie
   mounted() {
+  
   },
 
 
   methods: {
-    submit() {
-      // this.$axios.$post().then((response) => {
-        
-      // })
-      console.log(score);
+    radioItemChange(indexIn, value) {
+      this.radioList.push({
+        index: indexIn+1,
+        value: value
+      })
+    },
+
+    submit(id) {
+      console.log(this.radioList);
+      console.log(id);
+      this.$axios.$post('/api/core/questionnaireWhether/submit', {key1: id, key2: this.radioList}).then((response) => {
+        console.log(response)
+        // cookie.set('user', response.data.user)
+        // window.location.href = '/user'
+      })
     },
     
   }  
