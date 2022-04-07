@@ -70,13 +70,12 @@ import '~/assets/css/article.css'
 
 export default {
   async asyncData({ $axios, params }) {
-    //投资记录
     let responseArticleItemList = await $axios.$get(
       '/admin/core/article/list'
     )
 
     return {
-      articleItemList: responseArticleItemList.data.list, //投资记录      
+      articleItemList: responseArticleItemList.data.list,    
     }
   },
 

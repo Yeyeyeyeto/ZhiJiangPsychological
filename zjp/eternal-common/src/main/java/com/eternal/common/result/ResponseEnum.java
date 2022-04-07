@@ -36,6 +36,8 @@ public enum ResponseEnum {
     LOGIN_LOKED_ERROR(210, "用户被锁定"),
     LOGIN_AUTH_ERROR(-211, "未登录"),
     ARTICLE_AMOUNT_NULL_ERROR(-201, "文章标题不能为空"),
+    QUESTION_NULL_ERROR(-201, "还有题目没有填写哦"),
+
 
 
 

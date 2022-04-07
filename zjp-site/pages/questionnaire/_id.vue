@@ -84,9 +84,10 @@ export default {
       console.log(this.radioList);
       console.log(id);
       this.$axios.$post('/api/core/questionnaireWhether/submit', {key1: id, key2: this.radioList}).then((response) => {
-        console.log(response)
+        console.log(response);
+        console.log(response.data.score);
         // cookie.set('user', response.data.user)
-        // window.location.href = '/user'
+        window.location.href = '/questionnaire/result?id=' + id + '&score=' + response.data.score;
       })
     },
     
