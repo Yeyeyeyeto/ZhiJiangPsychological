@@ -30,7 +30,17 @@
     			<span class="sub-title">认识自我 了解他人</span>
     		</div>    		
     	</div>
-    	<div class="content-test"></div>
+    	<div class="content-test">
+         <tbody>
+                <tr  class="questionnaire-item" v-for="(questionnaireItem, index) in questionnaireItemList" 
+                    
+                    :key="questionnaireItem.id">
+                    <td class="questionnaire-name"><NuxtLink :to="'/questionnaire/' + questionnaireItem.id">{{ questionnaireItem.questionnaireName }}</NuxtLink></td>
+                    <td class="questionnaire-intro">{{ questionnaireItem.questionnaireIntro }}</td>
+                    <td class="questionnaire-time">{{ questionnaireItem.updateTime }}</td>
+                </tr>
+            </tbody>      
+        </div>
     </div>
 
   	<!-- 心理咨询 -->
@@ -73,9 +83,13 @@ export default {
     let responseArticleItemList = await $axios.$get(
       '/admin/core/article/list'
     )
+    let responseQuestionnaireItemList = await $axios.$get(
+      '/admin/core/questionnaire/list'
+    )
 
     return {
       articleItemList: responseArticleItemList.data.list,    
+      questionnaireItemList: responseQuestionnaireItemList.data.list,    
     }
   },
 

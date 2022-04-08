@@ -21,6 +21,7 @@
         </template>
       </el-table-column>
 
+      <el-table-column prop="id" label="咨询师ID" />
       <el-table-column prop="mobile" label="手机号" />
       <el-table-column prop="nickName" label="咨询师姓名" />
       <!-- <el-table-column prop="idCard" label="身份证号" /> -->

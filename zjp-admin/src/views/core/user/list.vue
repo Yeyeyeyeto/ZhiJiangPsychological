@@ -20,6 +20,7 @@
         </template>
       </el-table-column>
 
+      <el-table-column prop="id" label="用户ID" />
       <el-table-column prop="mobile" label="手机号" />
       <el-table-column prop="nickName" label="用户昵称" />
       <!-- <el-table-column prop="idCard" label="身份证号" /> -->

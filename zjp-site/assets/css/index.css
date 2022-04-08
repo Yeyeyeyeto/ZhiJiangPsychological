@@ -38,8 +38,8 @@
 	margin-top: 25px;
 }
 .content-test {
-	background-color: pink;
-	height: 200px;
+	/*background-color: pink;*/
+	/*height: 200px;*/
 	margin-top: 25px;
 }
 
@@ -54,6 +54,7 @@
 	height: 200px;
 	margin-top: 25px;
 }
+
 
 .content-read tr {
     float: left;
@@ -78,4 +79,41 @@
 .content-read .article-item .article-time {
     bottom: 10px;
     right: 12px;
- }
+}
+
+
+.content-test tr {
+    float: left;
+    position: relative;
+}
+.content-test tr td {
+    float: left;
+    position: absolute;
+}
+.content-test .questionnaire-item {
+    background-color: #f9f9fa;
+    width: 329px;
+    height: 90px;
+    margin: 10px 15px;
+    padding: 12px 12px;
+}
+.content-test .questionnaire-item .questionnaire-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+}
+.content-test .questionnaire-item .questionnaire-intro {
+    font-size: 12px;
+    top: 50px;
+    left: 20px;
+    color: #333;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp: 1;
+}
+.content-test .questionnaire-item .questionnaire-time {
+    bottom: 10px;
+    right: 12px;
+ } 

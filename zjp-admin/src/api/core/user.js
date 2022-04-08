@@ -24,4 +24,12 @@ export default {
   //   })
   // }
 
+  testList() {
+    // 调用axios的初始化模块，发送远程ajax请求
+    return request({
+      url: '/admin/core/test/list',
+      method: 'get'
+    })
+  },
+
 }

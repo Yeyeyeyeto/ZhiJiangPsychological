@@ -26,3 +26,5 @@
 2022-04-06 15:50:08 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.oss.ServiceOssApplication Started ServiceOssApplication in 20.533 seconds (JVM running for 22.219)
 2022-04-07 14:31:31 [INFO ] main SpringApplication.java:655 com.eternal.zjp.oss.ServiceOssApplication The following profiles are active: dev
 2022-04-07 14:32:03 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.oss.ServiceOssApplication Started ServiceOssApplication in 36.484 seconds (JVM running for 38.488)
+2022-04-08 14:03:56 [INFO ] main SpringApplication.java:655 com.eternal.zjp.oss.ServiceOssApplication The following profiles are active: dev
+2022-04-08 14:04:21 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.oss.ServiceOssApplication Started ServiceOssApplication in 32.704 seconds (JVM running for 35.128)

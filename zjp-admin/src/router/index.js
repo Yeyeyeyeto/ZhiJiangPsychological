@@ -146,7 +146,13 @@ export const constantRoutes = [
         name: 'coreUserList',
         component: () => import('@/views/core/user/list'),
         meta: { title: '用户列表' }
-      }
+      },
+      {
+        path: 'test',
+        name: 'coreUserTest',
+        component: () => import('@/views/core/user/test'),
+        meta: { title: '用户测试记录' }
+      },
     ]
   },
 

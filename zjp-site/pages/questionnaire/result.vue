@@ -28,7 +28,6 @@ export default {
 
   created() {
     this.$axios.$get('/admin/core/questionnaire/show/' + this.$route.query.id).then((response) => {
-        console.log(response.data.questionnaireVO.result)
         this.text = response.data.questionnaireVO.result;
     }) 
 

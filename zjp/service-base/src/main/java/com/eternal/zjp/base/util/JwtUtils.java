@@ -53,7 +53,7 @@ public class JwtUtils {
 
     public static Integer getUserId(String token) {
         Claims claims = getClaims(token);
-        Integer userId = (Integer)claims.get("Id");
+        Integer userId = (Integer)claims.get("userId");
         return userId.intValue();
     }
 
