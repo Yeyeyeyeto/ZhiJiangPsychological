@@ -1,40 +1,43 @@
 <template>
   <!--个人中心-->
-  <div class="wrapper">
-    <div class="w1200">
+  <div class="wrapper wbgcolor">
+    <div class="w1200 personal">
       <div class="personal-left">
-        <InvestorNav v-if="userType === 1" />
-        <BorrowerNav v-if="userType === 2" />
+        <UserNav v-if="type === 1" />
+        <ConsultantNav v-if="type === 2" />
       </div>
       <NuxtChild />
+      <div class="clear"></div>
     </div>
   </div>
 </template>
 
 <script>
 import '~/assets/css/user.css'
-import InvestorNav from '~/components/InvestorNav'
-import BorrowerNav from '~/components/BorrowerNav'
+import UserNav from '~/components/UserNav'
+import ConsultantNav from '~/components/ConsultantNav'
 import cookie from 'js-cookie'
 
 export default {
   components: {
-    InvestorNav,
-    BorrowerNav,
+    UserNav,
+    ConsultantNav,
   },
 
   data() {
     return {
-      userType: 0,
+      type: 0,
     }
   },
 
   mounted() {
-    let userInfo = cookie.get('userInfo')
-    if (userInfo) {
-      userInfo = JSON.parse(userInfo)
-      this.userType = userInfo.userType
+    let user = cookie.get('user')
+    console.log('11111111111111')
+      console.log(user)
+      if (user) {
+        user = JSON.parse(user)
+        this.type = user.type
     }
-  },
+  }
 }
 </script>

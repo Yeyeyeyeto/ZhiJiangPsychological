@@ -79,3 +79,5 @@
 2022-04-07 14:31:07 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.gateway.ServiceGatewayApplication Started ServiceGatewayApplication in 19.233 seconds (JVM running for 28.861)
 2022-04-08 14:03:20 [INFO ] main SpringApplication.java:655 com.eternal.zjp.gateway.ServiceGatewayApplication The following profiles are active: dev
 2022-04-08 14:03:40 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.gateway.ServiceGatewayApplication Started ServiceGatewayApplication in 27.515 seconds (JVM running for 30.734)
+2022-04-11 13:27:59 [INFO ] main SpringApplication.java:655 com.eternal.zjp.gateway.ServiceGatewayApplication The following profiles are active: dev
+2022-04-11 13:28:11 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.gateway.ServiceGatewayApplication Started ServiceGatewayApplication in 17.281 seconds (JVM running for 20.268)

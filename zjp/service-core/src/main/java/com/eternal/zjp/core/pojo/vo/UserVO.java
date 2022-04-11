@@ -11,7 +11,6 @@ import lombok.Data;
 @Data
 @ApiModel(description="用户信息对象")
 public class UserVO {
-
     @ApiModelProperty(value = "用户昵称")
     private String nickName;
 
@@ -23,5 +22,8 @@ public class UserVO {
 
     @ApiModelProperty(value = "JWT访问令牌")
     private String token;
+
+    @ApiModelProperty(value = "类型")
+    private Integer type;
 
 }

@@ -50,6 +50,9 @@ public class Consultant implements Serializable {
     @ApiModelProperty(value = "头像")
     private String headImg;
 
+    @ApiModelProperty(value = "类型（咨询师）")
+    private Integer type;
+
     @ApiModelProperty(value = "逻辑删除(1:已删除，0:未删除)")
     @TableField("is_deleted")
     @TableLogic

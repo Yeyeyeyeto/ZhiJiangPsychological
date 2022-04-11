@@ -47,7 +47,7 @@ export default {
        this.$axios.$post('/api/core/consultant/login', this.consultant).then((response) => {
         console.log(response)
         cookie.set('user', response.data.consultant)
-        window.location.href = '/consultant'
+        window.location.href = '/user'
       })
     },
   },

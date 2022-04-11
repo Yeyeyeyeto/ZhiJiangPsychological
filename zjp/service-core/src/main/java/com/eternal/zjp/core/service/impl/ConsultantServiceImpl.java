@@ -127,6 +127,7 @@ public class ConsultantServiceImpl extends ServiceImpl<ConsultantMapper, Consult
         userVO.setNickName(consultant.getNickName());
         userVO.setHeadImg(consultant.getHeadImg());
         userVO.setMobile(mobile);
+        userVO.setType(consultant.getType());
 
         // 返回
         return userVO;

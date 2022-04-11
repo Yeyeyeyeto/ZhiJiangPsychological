@@ -129,6 +129,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         userVO.setNickName(user.getNickName());
         userVO.setHeadImg(user.getHeadImg());
         userVO.setMobile(mobile);
+        userVO.setType(user.getType());
 
         // 返回
         return userVO;
