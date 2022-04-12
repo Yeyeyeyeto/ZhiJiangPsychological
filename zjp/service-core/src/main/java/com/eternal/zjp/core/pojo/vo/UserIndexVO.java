@@ -4,8 +4,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import java.math.BigDecimal;
-
 /**
  * @Auther Eternal
  * @Date 2022/3/10
@@ -26,7 +24,10 @@ public class UserIndexVO {
     @ApiModelProperty(value = "用户头像")
     private String headImg;
 
-    @ApiModelProperty(value = "帐户可用余额")
-    private BigDecimal amount;
+    @ApiModelProperty(value = "测试次数")
+    private Integer testNumber;
+
+    @ApiModelProperty(value = "咨询次数")
+    private Integer ConsultingNumber;
 
 }

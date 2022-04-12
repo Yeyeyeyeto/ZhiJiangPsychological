@@ -1,9 +1,6 @@
 <template>
   <div class="personal-main">
     <div class="pmain-profile">
-      <div class="pmain-welcome">
-        <span class="fr">上次登录时间： {{ userIndexVO.lastLoginTime }} </span>
-      </div>
       <div class="pmain-user">
         <div class="user-head">
           <span class="head-img">
@@ -18,57 +15,35 @@
         </div>
         <div class="user-info">
           <ul>
-            <li>
-              用户名<span>{{ userIndexVO.name }}</span>
-              <NuxtLink
-                v-if="
-                  userIndexVO.userType === 2 && userIndexVO.bindStatus === 1
-                "
-                to="/user/borrower"
-              >
-                立即借款
-              </NuxtLink>
-            </li>
-            <li v-if="userIndexVO.bindStatus !== 1">
-              您还未开通第三方支付账户，请
-              <NuxtLink to="/user/bind">立即开通</NuxtLink>
-              以确保您的正常使用和资金安全。
-            </li>
+            <li>用户名<span>{{ userIndexVO.nickName }}</span></li>            
+            <li>手机号码<span>{{ userIndexVO.mobile }}</span></li>
           </ul>
         </div>
       </div>
 
-      <div v-if="userIndexVO.bindStatus === 1" class="pmain-money">
+      <div class="pmain-money">
         <ul>
           <li class="none">
             <span>
-              <em>账户余额</em>
+              <em>测试次数</em>
               <i class="markicon"></i>
             </span>
             <span class="truemoney">
-              <i class="f26 fb">{{ userIndexVO.amount }}</i> 元
+              <i class="f26 fb">{{ userIndexVO.testNumber }}</i>
             </span>
           </li>
           <li>
             <span>
-              <em>冻结金额</em>
+              <em>咨询次数</em>
               <i class="markicon"></i>
             </span>
             <span class="truemoney">
-              <i class="f26 fb">{{ userIndexVO.freezeAmount }}</i
-              >元
+              <i class="f26 fb">{{ userIndexVO.ConsultingNumber }}</i>
             </span>
-          </li>
-          <li>
-            <NuxtLink to="/user/recharge">
-              <el-button size="mini" type="danger">充值</el-button>
-            </NuxtLink>
-            <NuxtLink to="/user/withdraw">
-              <el-button size="mini" type="success">提现</el-button>
-            </NuxtLink>
           </li>
         </ul>
       </div>
+
     </div>
   </div>
 </template>
@@ -88,7 +63,7 @@ export default {
   methods: {
     fetchUserData() {
       this.$axios
-        .$get('/api/core/userInfo/auth/getIndexUserInfo')
+        .$get('/api/core/user/auth/getIndexUserInfo')
         .then((response) => {
           this.userIndexVO = response.data.userIndexVO
         })

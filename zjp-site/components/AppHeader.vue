@@ -62,7 +62,10 @@
           </li>
           <li class="fn-right">
             <div class="">
-              <NuxtLink to="/user" class="user" title="我的账户">
+              <NuxtLink v-if="user.type == 1" to="/user" class="user" title="我的账户">
+                <i class="el-icon-user-solid">{{ user.nickName }}</i>
+              </NuxtLink>
+              <NuxtLink v-if="user.type == 2" to="/user/consultant" class="user" title="我的账户">
                 <i class="el-icon-user-solid">{{ user.nickName }}</i>
               </NuxtLink>
             </div>
