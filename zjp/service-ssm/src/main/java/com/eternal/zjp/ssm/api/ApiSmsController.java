@@ -62,6 +62,9 @@ public class ApiSmsController {
         String[] params = new String[2];
         params[0] = code;
         params[1] = "5";
+
+        System.out.println(code);
+
         //发送短信
         smsService.send(mobile, params);
 

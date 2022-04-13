@@ -172,6 +172,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         testRecordQueryWrapper.like("user_id", user.getId());
         userIndexVO.setTestNumber(testRecordService.count(testRecordQueryWrapper));
 
+        userIndexVO.setConsultingNumber(0);
+
 
         return userIndexVO;
     }

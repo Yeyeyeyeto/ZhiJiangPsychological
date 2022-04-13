@@ -69,28 +69,33 @@
 
       <el-table-column label="操作" align="center" width="200">
 	    <template slot-scope="scope">
-			<el-button type="primary" size="mini">
-				<router-link :to="'/core/consultant/detail/' + scope.row.id">
-					查看
-				</router-link>
-			</el-button>
-	        <el-button
-	                   v-if="scope.row.status == 1"
-	                   type="primary"
-	                   size="mini"
-	                   @click="lock(scope.row.id, 0)"
-	                   >
-	            锁定
-	        </el-button>
-	        <el-button
-	                   v-else
-	                   type="danger"
-	                   size="mini"
-	                   @click="lock(scope.row.id, 1)"
-	                   >
-	            解锁
-	        </el-button>
-	    </template>
+			<router-link :to="'/core/consultant/detail/' + scope.row.id">
+			  <el-button v-if="scope.row.consultantAuthStatus === 1" type="warning" size="mini">
+			    审批
+			  </el-button>
+			  <el-button v-else type="primary" size="mini">
+			    查看
+			  </el-button>
+			</router-link>	    
+			<el-button
+		               v-if="scope.row.status == 1"
+		               type="primary"
+		               size="mini"
+		               @click="lock(scope.row.id, 0)"
+		               style="margin-left: 10px;"
+		               >
+		        锁定
+		    </el-button>
+		    <el-button
+		               v-else
+		               type="danger"
+		               size="mini"
+		               @click="lock(scope.row.id, 1)"
+		               style="margin-left: 10px;"
+		               >
+		        解锁
+		    </el-button>    
+	    </template>	    
 	</el-table-column>
     </el-table>
 

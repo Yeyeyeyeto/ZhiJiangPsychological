@@ -7,7 +7,7 @@
             <span>
               <img
                 :src="userIndexVO.headImg"
-                style="width:88px;height:88px;z-index:0;"
+                style="width:84px;height:84px;z-index:0;"
               />
               <i class="headframe" style="z-index:0;"></i>
             </span>

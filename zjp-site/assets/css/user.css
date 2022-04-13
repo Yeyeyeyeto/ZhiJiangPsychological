@@ -3923,6 +3923,7 @@ a.top-icon1 {
   height: auto;
   background: #fff;
   padding-bottom: 30px;
+  min-height: 518px;
 }
 .personal-pay .pay-notice {
   float: left;

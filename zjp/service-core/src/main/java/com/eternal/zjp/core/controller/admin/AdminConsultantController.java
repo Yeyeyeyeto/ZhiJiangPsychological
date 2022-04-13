@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.eternal.common.result.R;
 import com.eternal.zjp.core.pojo.entity.Consultant;
 import com.eternal.zjp.core.pojo.query.ConsultantQuery;
+import com.eternal.zjp.core.pojo.vo.ConsultantApprovalVO;
+import com.eternal.zjp.core.pojo.vo.ConsultantDetailVO;
 import com.eternal.zjp.core.service.ConsultantService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -52,6 +54,23 @@ public class AdminConsultantController {
             @PathVariable("status") Integer status) {
         consultantService.lock(id, status);
         return R.ok().message(status == 1 ? "解锁成功": "锁定成功");
+    }
+
+    @ApiOperation("获取借款人信息")
+    @GetMapping("/show/{id}")
+    public R show(
+            @ApiParam(value = "借款人id", required = true)
+            @PathVariable Integer id){
+
+        ConsultantDetailVO consultantDetailVO = consultantService.getConsultantDetailVOById(id);
+        return R.ok().data("consultantDetailVO", consultantDetailVO);
+    }
+
+    @ApiOperation("借款额度审批")
+    @PostMapping("/approval")
+    public R approval(@RequestBody ConsultantApprovalVO consultantApprovalVO) {
+        consultantService.approval(consultantApprovalVO);
+        return R.ok().message("审批完成");
     }
 
 }

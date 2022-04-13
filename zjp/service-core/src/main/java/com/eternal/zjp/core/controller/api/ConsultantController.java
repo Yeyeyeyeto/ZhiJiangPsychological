@@ -6,10 +6,7 @@ import com.eternal.common.result.R;
 import com.eternal.common.result.ResponseEnum;
 import com.eternal.common.utils.RegexValidateUtils;
 import com.eternal.zjp.base.util.JwtUtils;
-import com.eternal.zjp.core.pojo.vo.ConsultantIndexVO;
-import com.eternal.zjp.core.pojo.vo.LoginVO;
-import com.eternal.zjp.core.pojo.vo.RegisterVO;
-import com.eternal.zjp.core.pojo.vo.UserVO;
+import com.eternal.zjp.core.pojo.vo.*;
 import com.eternal.zjp.core.service.ConsultantService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -102,6 +99,24 @@ public class ConsultantController {
         Integer userId = JwtUtils.getUserId(token);
         ConsultantIndexVO consultantIndexVO = consultantService.getIndexUserInfo(userId);
         return R.ok().data("consultantIndexVO", consultantIndexVO);
+    }
+
+    @ApiOperation("获取咨询师认证状态")
+    @GetMapping("/auth/getConsultantStatus")
+    public R getBorrowerStatus(HttpServletRequest request) {
+        String token = request.getHeader("token");
+        Integer userId = JwtUtils.getUserId(token);
+        Integer status = consultantService.getAuthStatusById(userId);
+        return R.ok().data("authStatus", status);
+    }
+
+    @ApiOperation("保存咨询师信息")
+    @PostMapping("/auth/save")
+    public R save(@RequestBody ConsultantVO consultantVO, HttpServletRequest request) {
+        String token = request.getHeader("token");
+        Integer userId = JwtUtils.getUserId(token);
+        consultantService.saveConsultantVOById(consultantVO, userId);
+        return R.ok().message("信息提交成功");
     }
 
 }

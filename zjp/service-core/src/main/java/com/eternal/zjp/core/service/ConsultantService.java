@@ -5,10 +5,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.eternal.zjp.core.pojo.entity.Consultant;
 import com.eternal.zjp.core.pojo.query.ConsultantQuery;
-import com.eternal.zjp.core.pojo.vo.ConsultantIndexVO;
-import com.eternal.zjp.core.pojo.vo.LoginVO;
-import com.eternal.zjp.core.pojo.vo.RegisterVO;
-import com.eternal.zjp.core.pojo.vo.UserVO;
+import com.eternal.zjp.core.pojo.vo.*;
 
 /**
  * <p>
@@ -31,4 +28,13 @@ public interface ConsultantService extends IService<Consultant> {
     ConsultantIndexVO getIndexUserInfo(Integer userId);
 
     IPage<Consultant> listPage(Page<Consultant> pageParam, ConsultantQuery consultantQuery);
+
+    Integer getAuthStatusById(Integer userId);
+
+    void saveConsultantVOById(ConsultantVO consultantVO, Integer userId);
+
+    ConsultantDetailVO getConsultantDetailVOById(Integer id);
+
+    void approval(ConsultantApprovalVO consultantApprovalVO);
+
 }

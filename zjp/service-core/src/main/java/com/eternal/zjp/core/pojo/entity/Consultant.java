@@ -73,6 +73,9 @@ public class Consultant implements Serializable {
     @ApiModelProperty(value = "咨询师擅长方向")
     private String consultantDirection;
 
+    @ApiModelProperty(value = "咨询师擅长方向")
+    private String consultantMotto;
+
     @ApiModelProperty(value = "咨询师认证状态（0：未认证 1：认证中 2：认证通过 -1：认证失败）")
     private Integer consultantAuthStatus;
 

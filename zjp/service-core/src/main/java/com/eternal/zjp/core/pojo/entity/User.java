@@ -27,7 +27,7 @@ public class User implements Serializable {
 
     public static final Integer STATUS_NORMAL = 1;
     public static final Integer STATUS_LOCKED = 0;
-    public static final String USER_AVATAR = "https://zjjr-file.oss-cn-beijing.aliyuncs.com/avatar/01.jpg";
+    public static final String USER_AVATAR = "https://zjxl-file.oss-cn-beijing.aliyuncs.com/avatar/dato.jpg";
 
     private static final long serialVersionUID = 1L;
 

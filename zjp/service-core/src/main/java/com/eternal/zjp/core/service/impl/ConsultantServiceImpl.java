@@ -9,20 +9,21 @@ import com.eternal.common.exception.Assert;
 import com.eternal.common.result.ResponseEnum;
 import com.eternal.common.utils.MD5;
 import com.eternal.zjp.base.util.JwtUtils;
+import com.eternal.zjp.core.enums.ConsultantStatusEnum;
 import com.eternal.zjp.core.mapper.AccountMapper;
+import com.eternal.zjp.core.mapper.ConsultantAttachMapper;
 import com.eternal.zjp.core.mapper.ConsultantMapper;
 import com.eternal.zjp.core.pojo.entity.Account;
 import com.eternal.zjp.core.pojo.entity.Consultant;
+import com.eternal.zjp.core.pojo.entity.ConsultantAttach;
 import com.eternal.zjp.core.pojo.query.ConsultantQuery;
-import com.eternal.zjp.core.pojo.vo.ConsultantIndexVO;
-import com.eternal.zjp.core.pojo.vo.LoginVO;
-import com.eternal.zjp.core.pojo.vo.RegisterVO;
-import com.eternal.zjp.core.pojo.vo.UserVO;
+import com.eternal.zjp.core.pojo.vo.*;
 import com.eternal.zjp.core.service.ConsultantService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * <p>
@@ -38,6 +39,12 @@ public class ConsultantServiceImpl extends ServiceImpl<ConsultantMapper, Consult
     @Resource
     private AccountMapper accountMapper;
 
+    @Resource
+    private ConsultantMapper consultantMapper;
+
+    @Resource
+    private ConsultantAttachMapper consultantAttachMapper;
+
     @Override
     public IPage<Consultant> listPage(Page<Consultant> pageParam, ConsultantQuery consultantQuery) {
         if (consultantQuery == null) {
@@ -52,6 +59,54 @@ public class ConsultantServiceImpl extends ServiceImpl<ConsultantMapper, Consult
         return baseMapper.selectPage(pageParam, consultantQueryWrapper);
     }
 
+    @Override
+    public Integer getAuthStatusById(Integer userId) {
+        QueryWrapper<Consultant> consultantQueryWrapper = new QueryWrapper<>();
+        consultantQueryWrapper.select("consultant_auth_status").eq("id", userId);
+        List<Object> objects = baseMapper.selectObjs(consultantQueryWrapper);
+        if (objects.size() == 0) {
+            return ConsultantStatusEnum.NO_AUTH.getStatus();
+        }
+
+        Integer status = (Integer) objects.get(0);
+
+        return status;
+    }
+
+    @Override
+    public void saveConsultantVOById(ConsultantVO consultantVO, Integer userId) {
+        Consultant consultant = consultantMapper.selectById(userId);
+
+        //保存信息
+        consultant.setNickName(consultantVO.getNickName());
+        consultant.setConsultantGrade(consultantVO.getConsultantGrade());
+        consultant.setConsultantLocation(consultantVO.getConsultantLocation());
+        consultant.setConsultantMotto(consultantVO.getConsultantMotto());
+        consultant.setSex(consultantVO.getSex());
+        consultant.setAge(consultantVO.getAge());
+
+        //保存附件
+        List<ConsultantAttach> consultantAttachList = consultantVO.getConsultantAttachList();
+        consultantAttachList.forEach(consultantAttach -> {
+            consultantAttach.setConsultantId(consultant.getId());
+            consultantAttachMapper.insert(consultantAttach);
+        });
+
+        //更新会员状态，更新为认证中
+        consultant.setConsultantAuthStatus(ConsultantStatusEnum.AUTH_RUN.getStatus());
+
+        consultantMapper.updateById(consultant);
+    }
+
+    @Override
+    public ConsultantDetailVO getConsultantDetailVOById(Integer id) {
+        return null;
+    }
+
+    @Override
+    public void approval(ConsultantApprovalVO consultantApprovalVO) {
+
+    }
 
     @Override
     public void lock(Integer id, Integer status) {
