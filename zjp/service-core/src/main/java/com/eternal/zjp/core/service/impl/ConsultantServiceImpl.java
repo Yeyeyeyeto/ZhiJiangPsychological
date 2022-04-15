@@ -18,7 +18,9 @@ import com.eternal.zjp.core.pojo.entity.Consultant;
 import com.eternal.zjp.core.pojo.entity.ConsultantAttach;
 import com.eternal.zjp.core.pojo.query.ConsultantQuery;
 import com.eternal.zjp.core.pojo.vo.*;
+import com.eternal.zjp.core.service.ConsultantAttachService;
 import com.eternal.zjp.core.service.ConsultantService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -44,6 +46,9 @@ public class ConsultantServiceImpl extends ServiceImpl<ConsultantMapper, Consult
 
     @Resource
     private ConsultantAttachMapper consultantAttachMapper;
+
+    @Resource
+    private ConsultantAttachService consultantAttachService;
 
     @Override
     public IPage<Consultant> listPage(Page<Consultant> pageParam, ConsultantQuery consultantQuery) {
@@ -81,6 +86,7 @@ public class ConsultantServiceImpl extends ServiceImpl<ConsultantMapper, Consult
         consultant.setNickName(consultantVO.getNickName());
         consultant.setConsultantGrade(consultantVO.getConsultantGrade());
         consultant.setConsultantLocation(consultantVO.getConsultantLocation());
+        consultant.setConsultantDirection(consultantVO.getConsultantDirection());
         consultant.setConsultantMotto(consultantVO.getConsultantMotto());
         consultant.setSex(consultantVO.getSex());
         consultant.setAge(consultantVO.getAge());
@@ -100,12 +106,31 @@ public class ConsultantServiceImpl extends ServiceImpl<ConsultantMapper, Consult
 
     @Override
     public ConsultantDetailVO getConsultantDetailVOById(Integer id) {
-        return null;
+        Consultant consultant = baseMapper.selectById(id);
+
+        ConsultantDetailVO consultantDetailVO = new ConsultantDetailVO();
+        BeanUtils.copyProperties(consultant, consultantDetailVO);
+
+        consultantDetailVO.setSex(consultant.getSex()==1?"男":"女");
+
+        System.out.println("-----------------");
+        System.out.println(consultantDetailVO.toString());
+
+        String status = ConsultantStatusEnum.getMsgByStatus(consultant.getStatus());
+        consultantDetailVO.setStatus(status);
+
+        List<ConsultantAttachVO> consultantAttachVOList =  consultantAttachService.selectConsultantAttachVOList(id);
+        consultantDetailVO.setConsultantAttachVOList(consultantAttachVOList);
+
+        return consultantDetailVO;
     }
 
+    @Transactional(rollbackFor = Exception.class)
     @Override
-    public void approval(ConsultantApprovalVO consultantApprovalVO) {
-
+    public void approval(Integer id, Integer status) {
+        Consultant consultant = baseMapper.selectById(id);
+        consultant.setConsultantAuthStatus(status);
+        baseMapper.updateById(consultant);
     }
 
     @Override
@@ -193,26 +218,11 @@ public class ConsultantServiceImpl extends ServiceImpl<ConsultantMapper, Consult
         //用户信息
         Consultant consultant = baseMapper.selectById(userId);
 
-        //账户信息
-        QueryWrapper<Account> accountQueryWrapper = new QueryWrapper<>();
-        accountQueryWrapper.eq("id", userId);
-        Account account = accountMapper.selectOne(accountQueryWrapper);
-
-        //登录信息
-//        QueryWrapper<UserLoginRecord> userLoginRecordQueryWrapper = new QueryWrapper<>();
-//        userLoginRecordQueryWrapper
-//                .eq("user_id", userId)
-//                .orderByDesc("id")
-//                .last("limit 1");
-//        UserLoginRecord userLoginRecord = userLoginRecordMapper.selectOne(userLoginRecordQueryWrapper);
-
         //组装结果数据
         ConsultantIndexVO consultantIndexVO = new ConsultantIndexVO();
+        BeanUtils.copyProperties(consultant, consultantIndexVO);
         consultantIndexVO.setUserId(consultant.getId());
-        consultantIndexVO.setMobile(consultant.getMobile());
-        consultantIndexVO.setNickName(consultant.getNickName());
-        consultantIndexVO.setHeadImg(consultant.getHeadImg());
-//        consultantIndexVO.setLastLoginTime(userLoginRecord.getCreateTime());
+        consultantIndexVO.setStatus(consultant.getConsultantAuthStatus());
 
         return consultantIndexVO;
     }

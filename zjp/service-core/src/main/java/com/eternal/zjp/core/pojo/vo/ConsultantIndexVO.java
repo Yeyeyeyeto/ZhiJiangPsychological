@@ -23,4 +23,18 @@ public class ConsultantIndexVO {
     @ApiModelProperty(value = "咨询师头像")
     private String headImg;
 
+    @ApiModelProperty(value = "认证状态")
+    private Integer status;
+
+    @ApiModelProperty(value = "咨询师等级头衔")
+    private String consultantGrade;
+
+    @ApiModelProperty(value = "咨询师个人签名")
+    private String consultantMotto;
+
+    @ApiModelProperty(value = "线下咨询地点")
+    private String consultantLocation;
+
+    @ApiModelProperty(value = "个人签名")
+    private String consultantDirection;
 }

@@ -2,6 +2,9 @@ package com.eternal.zjp.core.service;
 
 import com.eternal.zjp.core.pojo.entity.ConsultantAttach;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.eternal.zjp.core.pojo.vo.ConsultantAttachVO;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ConsultantAttachService extends IService<ConsultantAttach> {
 
+    List<ConsultantAttachVO> selectConsultantAttachVOList(Integer id);
 }

@@ -169,7 +169,14 @@ export const constantRoutes = [
         name: 'coreConsultantList',
         component: () => import('@/views/core/consultant/list'),
         meta: { title: '咨询师列表' }
-      }
+      },
+      {
+        path: 'detail/:id',
+        name: 'coreConsultantDetail',
+        component: () => import('@/views/core/consultant/detail'),
+        meta: { title: '咨询师详细信息' },
+        // hidden: true
+      },
     ]
   },
 

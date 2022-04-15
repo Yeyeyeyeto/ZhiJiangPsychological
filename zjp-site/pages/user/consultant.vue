@@ -17,7 +17,7 @@
           <ul>
             <li>用户名<span>{{ consultantIndexVO.nickName }}</span></li>        
             <li>手机号码<span>{{ consultantIndexVO.mobile }}</span></li>
-            <li v-if="consultantIndexVO.consultantAuthStatus !== 2">
+            <li v-if="consultantIndexVO.status !== 2">
               您还未经过官方认证
               <NuxtLink to="/user/auth">立即认证</NuxtLink>
               以确保咨询师功能的正常使用。
@@ -26,8 +26,45 @@
         </div>
       </div>
 
-      <div class="pmain-money">
-        
+      <div class="pmain-money2" v-if="consultantIndexVO.status == 2">
+        <ul>
+          <li class="none">
+            <span>
+              <em>咨询师等级</em>
+              <i class="markicon"></i>
+            </span>
+            <span class="truemoney">
+              <i class="f18 fb">{{ consultantIndexVO.consultantGrade }}</i>
+            </span>
+          </li>
+          <li>
+            <span>
+              <em>个人签名</em>
+              <i class="markicon"></i>
+            </span>
+            <span class="truemoney">
+              <i class="f18 fb">{{ consultantIndexVO.consultantMotto }}</i>
+            </span>
+          </li>
+          <li>
+            <span>
+              <em>擅长方向</em>
+              <i class="markicon"></i>
+            </span>
+            <span class="truemoney">
+              <i class="f18 fb">{{ consultantIndexVO.consultantDirection }}</i>
+            </span>
+          </li>
+          <li>
+            <span>
+              <em>咨询地点</em>
+              <i class="markicon"></i>
+            </span>
+            <span class="truemoney">
+              <i class="f18 fb">{{ consultantIndexVO.consultantLocation }}</i>
+            </span>
+          </li>
+        </ul>
       </div>
 
     </div>

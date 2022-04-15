@@ -1,6 +1,5 @@
 package com.eternal.zjp.core.pojo.vo;
 
-import com.eternal.zjp.core.pojo.entity.ConsultantAttach;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -28,7 +27,7 @@ public class ConsultantDetailVO {
     private Integer age;
 
     @ApiModelProperty(value = "性别（1：男 0：女）")
-    private Integer sex;
+    private String sex;
 
     @ApiModelProperty(value = "咨询师等级头衔")
     private String consultantGrade;
@@ -43,6 +42,9 @@ public class ConsultantDetailVO {
     private String consultantDirection;
 
     @ApiModelProperty(value = "咨询师附件资料")
-    private List<ConsultantAttach> consultantAttachList;
+    private List<ConsultantAttachVO> consultantAttachVOList;
+
+    @ApiModelProperty(value = "审核状态")
+    private String status;
 
 }

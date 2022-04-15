@@ -15,6 +15,20 @@ export default {
   		url: `/admin/core/consultant/lock/${id}/${status}`,
   		method: 'put'
   	})
+  },
+
+  show(id) {
+    return request({
+      url: `/admin/core/consultant/show/${id}`,
+      method: 'get'
+    })
+  },
+
+  approval(id, status) {
+    return request({
+      url: `/admin/core/consultant/approval/${id}/${status}`,
+      method: 'put'
+    })
   }
 
 }

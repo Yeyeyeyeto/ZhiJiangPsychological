@@ -35,6 +35,6 @@ public interface ConsultantService extends IService<Consultant> {
 
     ConsultantDetailVO getConsultantDetailVOById(Integer id);
 
-    void approval(ConsultantApprovalVO consultantApprovalVO);
+    void approval(Integer id, Integer status);
 
 }
