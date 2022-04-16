@@ -119,5 +119,14 @@ public class ConsultantController {
         return R.ok().message("信息提交成功");
     }
 
+    @ApiOperation("更新咨询师照片")
+    @PostMapping("/updateImg")
+    public R updateImg(@RequestBody String imgUrl, HttpServletRequest request) {
+        String token = request.getHeader("token");
+        Integer userId = JwtUtils.getUserId(token);
+        consultantService.updateImgById(userId, imgUrl);
+        return R.ok().message("信息提交成功");
+    }
+
 }
 

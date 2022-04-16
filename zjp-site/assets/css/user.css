@@ -3105,6 +3105,18 @@ a.top-icon1 {
   color: #E799B0;
   text-decoration: none;
 }
+
+.pmain-money a {
+  color: #E799B0;
+  margin: 0 10px;
+  font-size: 14px;
+  text-decoration: underline;
+}
+.pmain-money a:hover {
+  color: #E799B0;
+  text-decoration: none;
+}
+
 .pmain-user .user-info li {
   line-height: 30px;
 }
@@ -3349,25 +3361,14 @@ a.top-icon1 {
 .pmain-money li span {
   display: block;
 }
+.pmain-money li h3 {
+  font-size: 16px;
+  font-weight: 700;
+}
 
-.pmain-money2 ul {
-  width: 760px;
-  height: 104px;
-  margin-left: 30px;
-}
-.pmain-money2 li {
-  float: left;
+
+.pmain-li ul li {
   width: 320px;
-  padding: 0 25px;
-  height: 55px;
-  margin: 25px 0;
-  border-left: 1px solid #f2f2f2;
-}
-.pmain-money2 li.none {
-  border: none;
-}
-.pmain-money2 li span {
-  display: block;
 }
 
 .pmain-notice {
@@ -7293,4 +7294,16 @@ a.top-icon1 {
 }
 .personal-zqzr .wdhb-dhls {
   margin-top: 30px;
+}
+
+
+.show-head-img {
+  width: 200px;
+  height: 200px;
+  float: left;
+  margin: 0px 35px 0px 60px;
+}
+
+.disabled .el-upload--picture-card {
+    display: none;
 }

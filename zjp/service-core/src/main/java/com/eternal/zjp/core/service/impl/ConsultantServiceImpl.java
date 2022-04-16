@@ -20,11 +20,13 @@ import com.eternal.zjp.core.pojo.query.ConsultantQuery;
 import com.eternal.zjp.core.pojo.vo.*;
 import com.eternal.zjp.core.service.ConsultantAttachService;
 import com.eternal.zjp.core.service.ConsultantService;
+import lombok.SneakyThrows;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.net.URLDecoder;
 import java.util.List;
 
 /**
@@ -130,6 +132,24 @@ public class ConsultantServiceImpl extends ServiceImpl<ConsultantMapper, Consult
     public void approval(Integer id, Integer status) {
         Consultant consultant = baseMapper.selectById(id);
         consultant.setConsultantAuthStatus(status);
+        baseMapper.updateById(consultant);
+    }
+
+    @SneakyThrows
+    @Override
+    public void updateImgById(Integer userId, String imgUrl) {
+        Consultant consultant = baseMapper.selectById(userId);
+
+        System.out.println("----------------");
+//        System.out.println(imgUrl);
+
+        imgUrl = imgUrl.replaceAll("%(?![0-9a-fA-F]{2})", "%25");
+        String urlStr = URLDecoder.decode(imgUrl, "UTF-8");
+        urlStr = urlStr.substring(0, urlStr.length() - 1);
+        System.out.println(urlStr);
+
+
+        consultant.setHeadImg(urlStr);
         baseMapper.updateById(consultant);
     }
 

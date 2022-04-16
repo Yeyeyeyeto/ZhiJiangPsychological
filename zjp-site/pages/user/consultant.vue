@@ -5,11 +5,13 @@
         <div class="user-head">
           <span class="head-img">
             <span>
+              <NuxtLink to="/user/auth">
               <img
                 :src="consultantIndexVO.headImg"
                 style="width:88px;height:88px;z-index:0;"
               />
               <i class="headframe" style="z-index:0;"></i>
+              </NuxtLink>
             </span>
           </span>
         </div>
@@ -26,7 +28,7 @@
         </div>
       </div>
 
-      <div class="pmain-money2" v-if="consultantIndexVO.status == 2">
+      <div class="pmain-money pmain-li" v-if="consultantIndexVO.status == 2">
         <ul>
           <li class="none">
             <span>
@@ -64,6 +66,18 @@
               <i class="f18 fb">{{ consultantIndexVO.consultantLocation }}</i>
             </span>
           </li>
+        </ul>
+      </div>
+
+      <div class="pmain-money" v-if="consultantIndexVO.status == 2">
+        <ul>
+          <li class="none">
+            <span>
+              <h3>其他设置</h3>
+              <br>
+            </span>
+            <NuxtLink to="/user/headimg">修改照片</NuxtLink>
+          </li>        
         </ul>
       </div>
 

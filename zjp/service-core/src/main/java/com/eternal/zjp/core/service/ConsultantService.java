@@ -37,4 +37,5 @@ public interface ConsultantService extends IService<Consultant> {
 
     void approval(Integer id, Integer status);
 
+    void updateImgById(Integer userId, String imgUrl);
 }
