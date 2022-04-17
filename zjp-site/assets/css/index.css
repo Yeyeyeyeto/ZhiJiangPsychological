@@ -44,8 +44,8 @@
 }
 
 .content-consult {
-	background-color: pink;
-	height: 200px;
+	/*background-color: pink;*/
+	min-height: 200px;
 	margin-top: 25px;
 }
 
@@ -117,3 +117,146 @@
     bottom: 10px;
     right: 12px;
  } 
+
+
+.content-consult tr {
+    float: left;
+    position: relative;
+}
+.content-consult tr td {
+    float: left;
+    position: absolute;
+}
+.content-consult .consultant-item {
+    background-color: white;
+    width: 230px;
+    height: 330px;
+    margin: 15px 28px;
+    padding: 0px 0px;
+    border-radius: 10px;
+    box-shadow: 3px 4px 18px rgb(0 0 0 / 12%);
+}
+.content-consult .consultant-item .consultant-hidden-img {
+    width: 230px;
+    height: 84px;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+.content-consult .consultant-item .consultant-hidden-img img {
+    width: 230px;
+    height: 100%;
+    -webkit-filter: blur(8px);
+    filter: blur(8px);
+    object-fit: cover;
+    object-position: center;
+}
+.content-consult .consultant-item .consultant-head {
+    top: 45px;
+    left: 15px;    
+}
+.content-consult .consultant-item .consultant-head img {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+}
+.content-consult .consultant-item .consultant-name {
+    font-size: 16px;
+    color: #fff;
+    line-height: 20px;
+    top: 60px;    
+    left: 100px;
+}
+.content-consult .consultant-item .consultant-sex {
+    top: 130px;
+    left: 30px;    
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.content-consult .consultant-item .consultant-sex:before {
+    content: "\25CF";
+    color: #E799B0;
+    font-size: 12px;
+    margin-right: 10px;
+}
+.content-consult .consultant-item .consultant-grade {
+    top: 155px;
+    left: 30px;    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.content-consult .consultant-item .consultant-grade:before {
+    content: "\25CF";
+    color: #E799B0;
+    font-size: 12px;
+    margin-right: 10px;
+}
+.content-consult .consultant-item .consultant-direction {
+    top: 180px;
+    left: 30px;    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.content-consult .consultant-item .consultant-direction:before {
+    content: "\25CF";
+    color: #E799B0;
+    font-size: 12px;
+    margin-right: 10px;
+}
+.content-consult .consultant-item .consultant-motto {
+    top: 222px;
+    left: 30px;    
+    color: #999;
+    width: 180px;
+    text-align: left;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+.content-consult .consultant-item .consultant-btn {
+    width: 90px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    background: #E799B0;
+    border-radius: 8px;
+    /*margin: 0 30%;
+    margin-top: 28px;*/
+    color: #fff;
+    font-size: 14px;
+    bottom: 20px;
+    left: 30%;
+
+}
+.content-consult .consultant-item .consultant-btn a {
+    color: #fff!important;    
+}
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

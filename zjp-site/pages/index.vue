@@ -47,13 +47,35 @@
     <div class="container container-white">
     	<div class="psy-consult">
     		<div class="main-title">
-    			<a href="#" class="common-a">
+    			<a href="/consultant" class="common-a">
     				<span class="psy-answer">心理咨询</span>
     			</a>
 	    		<span class="sub-title">没有人是一座孤岛，每个人都需要心理咨询</span>
     		</div>
     	</div>
-    	<div class="content-consult"></div>
+    	<div class="content-consult">
+        <tbody>
+            <tr  class="consultant-item" v-for="(consultantItem, index) in consultantItemList" v-if="index<8" :key="consultantItem.id">
+                <td class="consultant-hidden-img">
+                  <img :src="consultantItem.headImg"/>                      
+                </td>
+                <td class="consultant-head">
+                  <img :src="consultantItem.headImg"/>   
+                </td>
+                <td class="consultant-name">{{ consultantItem.nickName }}</td>
+
+                <td class="consultant-sex">
+                  <span v-if="consultantItem.sex == 1">男</span>
+                  <span v-if="consultantItem.sex !== 1">女</span>
+                  <span>{{ consultantItem.age }}</span>
+                </td>
+                <td class="consultant-grade">{{ consultantItem.consultantGrade }}</td>
+                <td class="consultant-direction">{{ consultantItem.consultantDirection }}</td>
+                <td class="consultant-motto"><p>{{ consultantItem.consultantMotto }}</p></td>
+                <td class="consultant-btn"><NuxtLink :to="'/consultant/' + consultantItem.id">预约</NuxtLink></td>
+            </tr>
+        </tbody>  
+      </div>
     </div>
 
 
@@ -86,10 +108,14 @@ export default {
     let responseQuestionnaireItemList = await $axios.$get(
       '/admin/core/questionnaire/list'
     )
+    let responseConsultantItemList = await $axios.$get(
+      '/admin/core/consultant/list'
+    )
 
     return {
       articleItemList: responseArticleItemList.data.list,    
       questionnaireItemList: responseQuestionnaireItemList.data.list,    
+      consultantItemList: responseConsultantItemList.data.list,
     }
   },
 

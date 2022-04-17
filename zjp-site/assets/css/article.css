@@ -147,4 +147,127 @@
 }
 
 
+.article-content .consultant-item {
+	width: 100%;
+	height: 100px;
+	margin: 10px 0px;
+	/*background-color: pink;*/
+    border-bottom: 1px #EEE0E5 solid;
+}
+.article-content .consultant-item .consultant-head {
+    top: 16px;
+    left: 15px;    
+}
+.article-content .consultant-item .consultant-head img {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+}
+.article-content .consultant-item .consultant-name {
+	top: 20px;
+	left: 100px;
+	font-size: 18px;
+    font-weight: 700;
+    color: #21252d;
+}
+.article-content .consultant-item .consultant-sex {
+	top: 24px;
+	left: 177px;
+}
+.article-content .consultant-item .consultant-location {
+	top: 24px;
+	left: 230px;
+	width: 220px;
+    text-align: left;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+.article-content .consultant-item .consultant-grade {
+	top: 55px;
+	left: 100px;
+}
+.article-content .consultant-item .consultant-btn {
+	top: 30%;
+	right: 30px;
+    width: 90px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    background: #E799B0;
+    border-radius: 8px;
+    /*margin: 0 30%;
+    margin-top: 28px;*/
+    color: #fff;
+    font-size: 14px;
+}
+.article-content .consultant-item .consultant-btn a {
+    color: #fff!important;    
+}
 
+
+
+
+.consultant-item-content {
+	background-color: white;
+	margin: 30px 360px;
+	width: 56%;
+	min-height: 600px;
+	border-radius: 14px;
+}
+.consultant-item-content .consultant-title {
+	position: relative;
+	width: 100%;
+	height: 200px;
+}
+.consultant-item-content .consultant-title h1 {
+	font-size: 20px;
+	margin: 0px 0px; 	
+}
+.consultant-item-content .consultant-title h3 {
+	font-size: 20px;
+	/*margin: 30px 0px; */
+	font-weight: 600;
+	position: absolute;
+	/*z-index: 99;*/
+	top: 40px;
+	left: 228px;
+	color: white;
+    font-size: 32px;
+}
+.consultant-item-content .consultant-title .bg {
+    width: 100%;
+    height: 88px;
+    overflow: hidden;
+    border-radius: 14px 14px 0 0;
+   	position: absolute;
+   	float: left;
+}
+.consultant-item-content .consultant-title .bg img {
+    width: 120%;
+    height: 120%;
+    -webkit-filter: blur(2px);
+    filter: blur(2px);
+    object-fit: cover;
+    object-position: -15px -20px;
+}
+.consultant-item-content .consultant-title .head img {
+    position: absolute;
+    width: 120px;
+    height: 120px;   
+    border-radius: 6px;
+    border: 3px solid rgba(255,255,255,.3);	
+    top: 24px;
+    left: 80px;
+}
+.consultant-item-content .consultant-title .motto {
+	position: absolute;
+    top: 110px;
+    left: 235px;
+    font-size: 14px;
+    color: #333;
+}

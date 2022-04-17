@@ -14,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @Auther Eternal
@@ -27,6 +28,13 @@ public class AdminConsultantController {
 
     @Resource
     private ConsultantService consultantService;
+
+    @ApiOperation("咨询师列表")
+    @GetMapping("/list")
+    public R listAll() {
+        List<Consultant> list = consultantService.list();
+        return R.ok().data("list", list);
+    }
 
     @ApiOperation("获取咨询师分页列表")
     @GetMapping("/list/{page}/{limit}")
@@ -75,6 +83,19 @@ public class AdminConsultantController {
             @PathVariable("status") Integer status) {
         consultantService.approval(id, status);
         return R.ok().message("审批完成");
+    }
+
+    @ApiOperation("根据id获取咨询师")
+    @GetMapping("/get/{id}")
+    public R getById(
+            @ApiParam(value = "数据id", required = true, example = "1")
+            @PathVariable Integer id) {
+        Consultant consultant = consultantService.getById(id);
+        if (consultant != null) {
+            return R.ok().data("record", consultant);
+        } else {
+            return R.error().message("数据不存在");
+        }
     }
 
 }
