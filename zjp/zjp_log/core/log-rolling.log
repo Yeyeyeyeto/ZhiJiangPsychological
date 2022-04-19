@@ -10147,3 +10147,7 @@ Caused by: java.lang.NumberFormatException: For input string: "consultantItem.he
 	at org.springframework.validation.DataBinder.convertIfNecessary(DataBinder.java:693)
 	at org.springframework.web.method.annotation.AbstractNamedValueMethodArgumentResolver.resolveArgument(AbstractNamedValueMethodArgumentResolver.java:125)
 	... 47 common frames omitted
+2022-04-19 15:18:53 [INFO ] main SpringApplication.java:655 com.eternal.zjp.core.ServiceCoreApplication The following profiles are active: dev
+2022-04-19 15:19:14 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.core.ServiceCoreApplication Started ServiceCoreApplication in 27.774 seconds (JVM running for 32.631)
+2022-04-19 16:33:04 [INFO ] main SpringApplication.java:655 com.eternal.zjp.core.ServiceCoreApplication The following profiles are active: dev
+2022-04-19 16:33:22 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.core.ServiceCoreApplication Started ServiceCoreApplication in 22.663 seconds (JVM running for 24.869)

@@ -47,6 +47,11 @@
             <el-input v-model="consultant.consultantDirection" />
         </el-col>
     </el-form-item>
+        <el-form-item label="单次咨询费用">
+        <el-col :span="5">
+            <el-input v-model="consultant.consultantCost" />
+        </el-col>
+    </el-form-item>
 </el-form>
         
 

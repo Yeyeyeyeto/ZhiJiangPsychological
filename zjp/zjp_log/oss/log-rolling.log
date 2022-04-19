@@ -243,3 +243,5 @@ java.lang.StringIndexOutOfBoundsException: String index out of range: 46
 	at java.lang.Thread.run(Thread.java:823)
 2022-04-17 13:28:34 [INFO ] main SpringApplication.java:655 com.eternal.zjp.oss.ServiceOssApplication The following profiles are active: dev
 2022-04-17 13:28:55 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.oss.ServiceOssApplication Started ServiceOssApplication in 26.782 seconds (JVM running for 29.605)
+2022-04-19 15:18:42 [INFO ] main SpringApplication.java:655 com.eternal.zjp.oss.ServiceOssApplication The following profiles are active: dev
+2022-04-19 15:19:04 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.oss.ServiceOssApplication Started ServiceOssApplication in 29.385 seconds (JVM running for 31.177)

@@ -35,6 +35,9 @@ public class ConsultantVO {
     @ApiModelProperty(value = "个人签名")
     private String consultantDirection;
 
+    @ApiModelProperty(value = "咨询费用")
+    private Integer consultantCost;
+
     @ApiModelProperty(value = "咨询师附件资料")
     private List<ConsultantAttach> consultantAttachList;
 }

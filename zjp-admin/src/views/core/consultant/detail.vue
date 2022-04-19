@@ -59,6 +59,13 @@
           </el-form-item>
         </el-col>
       </el-row>
+      <el-row>
+        <el-col :span="12">
+          <el-form-item label="擅长方向">
+            ¥ {{ consultant.consultantCost }}/次
+          </el-form-item>
+        </el-col>
+      </el-row>
 
       <el-row>
         <el-col :span="24">

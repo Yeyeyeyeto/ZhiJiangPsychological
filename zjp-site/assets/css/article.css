@@ -218,6 +218,7 @@
 	width: 56%;
 	min-height: 600px;
 	border-radius: 14px;
+	padding-bottom: 1px;
 }
 .consultant-item-content .consultant-title {
 	position: relative;
@@ -270,4 +271,79 @@
     left: 235px;
     font-size: 14px;
     color: #333;
+}
+
+.consultant-item-content .consultant-item-info .info-intro {
+    width: 80%;
+    margin-left: 9%;
+    margin-bottom: 50px;
+}
+.consultant-item-content .consultant-item-info .info-article {
+    width: 80%;
+    margin-left: 9%;
+    margin-bottom: 50px;
+}
+.consultant-item-content .consultant-item-info .info-process {
+    width: 80%;
+    margin-left: 9%;
+    margin-bottom: 50px;
+}
+.consultant-item-content .consultant-item-info h3 {
+    font-size: 20px;
+    color: #000;
+    font-weight: 700;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #E799B0;
+}
+.consultant-item-content .consultant-item-info h3 span {
+    display: inline-block;
+    position: relative;
+    top: -3px;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    background-color: #E799B0;
+    border-radius: 50%;
+}
+.consultant-item-content .consultant-item-info .info-intro-item h4 {
+    font-size: 16px;
+    color: #333;
+    font-weight: 700;
+    margin-top: 16px;
+    margin-left: 20px;
+}
+.consultant-item-content .consultant-item-info .info-intro-item p {
+    margin-top: 10px;
+    margin-left: 40px;
+    color: #666;
+}
+.consultant-item-content .consultant-item-info .info-article .info-article-message {
+    color: #666;
+    margin: 40px auto;
+    text-align: center;
+    font-size: 16px;
+}
+.consultant-item-content .consultant-item-info .info-process .info-process-detail {
+    color: #666;
+    margin: 40px auto;
+    text-align: center;
+    font-size: 18px;
+}
+
+.consultant-item-content .consultant-item-info .order-btn {
+    width: 150px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    background: #E799B0;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 16px;
+    bottom: 20px;
+    left: 30%;
+    margin: 70px auto;
+    font-weight: 700;
+}
+.consultant-item-content .consultant-item-info .order-btn a {
+    color: #fff!important;        
 }

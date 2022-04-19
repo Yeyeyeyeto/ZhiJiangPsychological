@@ -90,6 +90,7 @@ public class ConsultantServiceImpl extends ServiceImpl<ConsultantMapper, Consult
         consultant.setConsultantLocation(consultantVO.getConsultantLocation());
         consultant.setConsultantDirection(consultantVO.getConsultantDirection());
         consultant.setConsultantMotto(consultantVO.getConsultantMotto());
+        consultant.setConsultantCost(consultantVO.getConsultantCost());
         consultant.setSex(consultantVO.getSex());
         consultant.setAge(consultantVO.getAge());
 

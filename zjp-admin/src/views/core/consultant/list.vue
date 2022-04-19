@@ -35,9 +35,9 @@
 
 	  <el-table-column prop="age" label="咨询师年龄" />
 	  <el-table-column prop="consultantGrade" label="咨询师等级" />
-	  <el-table-column prop="consultantLocation" label="咨询师咨询地点" />
+	  <!-- <el-table-column prop="consultantLocation" label="咨询师咨询地点" /> -->
 	  <!-- <el-table-column prop="consultantDirection" label="咨询师擅长方向" /> -->
-
+	  <el-table-column prop="consultantCost" label="单次咨询费用" />
       <el-table-column prop="createTime" label="注册时间" width="160" />
       <el-table-column label="咨询师状态" width="100">
         <template slot-scope="scope">
