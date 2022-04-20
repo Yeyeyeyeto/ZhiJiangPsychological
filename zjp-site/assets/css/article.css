@@ -347,3 +347,63 @@
 .consultant-item-content .consultant-item-info .order-btn a {
     color: #fff!important;        
 }
+
+
+
+
+.pay-content {
+	min-height: 508px;
+}
+.pay-content .pay-detail {
+    width: 80%;
+    margin-left: 9%;
+    margin-top: 40px;
+    margin-bottom: 50px;
+   	float: left;
+}
+.pay-content .pay-detail .pay-detail-item p {
+    font-size: 18px;
+    margin: 40px 40px;
+    padding-right: 10px
+}
+.pay-content .pay-detail .pay-detail-item p span {
+    float: right;
+    /*margin-right: 20px;*/
+}
+.pay-content .pay-detail h3 {
+    font-size: 22px;
+    color: #000;
+    font-weight: 700;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #E799B0;
+}
+.pay-content .pay-detail .pay-cost {
+ 	float: right;
+ 	font-size: 18px;
+	width: 100%;
+	text-align: right;
+	padding-top: 10px;
+	padding-right: 50px;
+	overflow: hidden;
+}
+.pay-content .pay-btn {
+	float: left;
+    width: 120px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    background: #E799B0;
+    border-radius: 8px;
+    margin: 0 42%;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+
+}
+.pay-content .pay-btn a {
+    color: #fff!important;        
+}
+
+
+
+
