@@ -218,7 +218,7 @@
 	width: 56%;
 	min-height: 600px;
 	border-radius: 14px;
-	padding-bottom: 1px;
+	padding-bottom: 30px;
 }
 .consultant-item-content .consultant-title {
 	position: relative;
@@ -341,7 +341,7 @@
     font-size: 16px;
     bottom: 20px;
     left: 30%;
-    margin: 70px auto;
+    margin: 30px auto;
     font-weight: 700;
 }
 .consultant-item-content .consultant-item-info .order-btn a {
@@ -377,7 +377,7 @@
     padding-bottom: 20px;
     border-bottom: 2px solid #E799B0;
 }
-.pay-content .pay-detail .pay-cost {
+/*.pay-content .pay-detail .pay-cost {
  	float: right;
  	font-size: 18px;
 	width: 100%;
@@ -385,7 +385,7 @@
 	padding-top: 10px;
 	padding-right: 50px;
 	overflow: hidden;
-}
+}*/
 .pay-content .pay-btn {
 	float: left;
     width: 120px;
@@ -395,13 +395,23 @@
     background: #E799B0;
     border-radius: 8px;
     margin: 0 42%;
-    color: #fff;
+}
+.pay-content .pay-btn button {
+	color: #fff!important;
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border-radius: 0;
+	background-color: transparent;
+	line-height: inherit;
+	width: max-content;
+	border: none;
     font-size: 16px;
     font-weight: 600;
-
+   	cursor: pointer;
 }
-.pay-content .pay-btn a {
-    color: #fff!important;        
+.pay-content .pay-btn button:after {
+	border: none;
 }
 
 

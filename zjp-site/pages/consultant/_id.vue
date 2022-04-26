@@ -32,8 +32,8 @@
           <div class="info-process-detail">预约咨询师 - 支付订单 - 咨询师确认 - 协商并进行咨询 - 来访者确认完成</div>
         </div>
         <div class="order-btn">
-          <NuxtLink :to="'/consultant/' + consultantItem.id">立即预约</NuxtLink>
-          <el-form :inline="true" class="demo-form-inline">
+          <NuxtLink :to="'/pay/' + consultantItem.id">立即预约</NuxtLink>
+          <!-- <el-form :inline="true" class="demo-form-inline">
             <el-form-item>              
               <el-button
                 type="warning"
@@ -42,7 +42,7 @@
                 立即投资
               </el-button>
             </el-form-item>
-          </el-form>
+          </el-form> -->
         </div>
       </div>      
     </div>

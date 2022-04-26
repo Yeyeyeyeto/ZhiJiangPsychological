@@ -175,8 +175,32 @@ export const constantRoutes = [
         name: 'coreConsultantDetail',
         component: () => import('@/views/core/consultant/detail'),
         meta: { title: '咨询师详细信息' },
-        // hidden: true
+        hidden: true
       },
+    ]
+  },
+
+    {
+    path: '/core/order',
+    component: Layout,
+    redirect: '/core/order/list',
+    name: 'coreOrder',
+    meta: { title: '订单管理', icon: 'user' },
+    alwaysShow: true,
+    children: [
+      {
+        path: 'list',
+        name: 'coreOrderList',
+        component: () => import('@/views/core/order/list'),
+        meta: { title: '订单列表' }
+      },
+      // {
+      //   path: 'detail/:id',
+      //   name: 'coreorderDetail',
+      //   component: () => import('@/views/core/order/detail'),
+      //   meta: { title: '咨询师详细信息' },
+      //   hidden: true
+      // },
     ]
   },
 

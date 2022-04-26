@@ -6,6 +6,7 @@ import com.eternal.common.result.R;
 import com.eternal.common.result.ResponseEnum;
 import com.eternal.common.utils.RegexValidateUtils;
 import com.eternal.zjp.base.util.JwtUtils;
+import com.eternal.zjp.core.pojo.entity.Consultant;
 import com.eternal.zjp.core.pojo.vo.*;
 import com.eternal.zjp.core.service.ConsultantService;
 import io.swagger.annotations.Api;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * <p>
@@ -128,5 +130,19 @@ public class ConsultantController {
         return R.ok().message("信息提交成功");
     }
 
-}
+    @ApiOperation("问卷提交")
+    @PostMapping("/paying")
+    public R submit(@RequestBody Map<String, Object> maps, HttpServletRequest request) {
 
+        String consultantId = (String) maps.get("key1");
+        Integer number = (Integer) maps.get("key2");
+
+        int id = Integer.parseInt(consultantId);
+
+        Consultant consultant = consultantService.getById(id);
+        number *= consultant.getConsultantCost();
+
+        return R.ok().message("提交成功").data("number", number);
+    }
+
+}

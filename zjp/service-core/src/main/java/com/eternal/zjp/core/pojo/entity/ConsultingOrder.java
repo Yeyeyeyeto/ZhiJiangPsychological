@@ -17,12 +17,12 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author Eternal
- * @since 2022-03-15
+ * @since 2022-04-26
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value="Order对象", description="订单表")
-public class Order implements Serializable {
+@ApiModel(value="ConsultingOrder对象", description="订单表")
+public class ConsultingOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -39,25 +39,19 @@ public class Order implements Serializable {
     @ApiModelProperty(value = "金额")
     private Integer amount;
 
-    @ApiModelProperty(value = "预约地点")
-    private String appointmentLocation;
-
-    @ApiModelProperty(value = "预约时间")
-    private LocalDateTime appointmentTime;
-
-    @ApiModelProperty(value = "订单状态(0 待完成；1 已完成；2 已取消)")
+    @ApiModelProperty(value = "订单状态(0 已支付待咨询师确认；1 咨询进行中；2 用户确定已完成；3 已取消)")
     private Integer status;
+
+    @ApiModelProperty(value = "逻辑删除(1:已删除，0:未删除)")
+    @TableField("is_deleted")
+    @TableLogic
+    private Boolean deleted;
 
     @ApiModelProperty(value = "创建时间")
     private LocalDateTime createTime;
 
     @ApiModelProperty(value = "更新时间")
     private LocalDateTime updateTime;
-
-    @ApiModelProperty(value = "逻辑删除(1:已删除，0:未删除)")
-    @TableField("is_deleted")
-    @TableLogic
-    private Boolean deleted;
 
 
 }

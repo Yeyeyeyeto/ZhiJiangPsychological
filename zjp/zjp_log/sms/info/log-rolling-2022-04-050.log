@@ -1,6 +1,0 @@
-2022-04-01 14:08:02 [INFO ] main SpringApplication.java:655 com.eternal.zjp.ssm.ServiceSmsApplication The following profiles are active: dev
-2022-04-01 14:08:19 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.ssm.ServiceSmsApplication Started ServiceSmsApplication in 22.617 seconds (JVM running for 25.744)
-2022-04-02 14:13:47 [INFO ] main SpringApplication.java:655 com.eternal.zjp.ssm.ServiceSmsApplication The following profiles are active: dev
-2022-04-02 14:14:05 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.ssm.ServiceSmsApplication Started ServiceSmsApplication in 25.985 seconds (JVM running for 30.415)
-2022-04-05 14:23:20 [INFO ] main SpringApplication.java:655 com.eternal.zjp.ssm.ServiceSmsApplication The following profiles are active: dev
-2022-04-05 14:23:50 [INFO ] main StartupInfoLogger.java:61 com.eternal.zjp.ssm.ServiceSmsApplication Started ServiceSmsApplication in 40.921 seconds (JVM running for 43.388)

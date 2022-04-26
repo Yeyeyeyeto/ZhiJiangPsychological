@@ -1,6 +1,6 @@
 package com.eternal.zjp.core.mapper;
 
-import com.eternal.zjp.core.pojo.entity.Order;
+import com.eternal.zjp.core.pojo.entity.ConsultingOrder;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author Eternal
- * @since 2022-03-15
+ * @since 2022-04-26
  */
-public interface OrderMapper extends BaseMapper<Order> {
+public interface ConsultingOrderMapper extends BaseMapper<ConsultingOrder> {
 
 }

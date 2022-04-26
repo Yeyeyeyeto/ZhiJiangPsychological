@@ -29,20 +29,51 @@
 	line-height: 24px;
 }
 
+.questionnaire-result-number p {
+	font-size: 16px;
+	color: #777;
+}
+.questionnaire-result-number p span {
+	color: #FFA421;
+	float: right;
+	font-size: 18px;
+	font-weight: 600;
+}
+.questionnaire-result-number .p-img {
+	text-align: center;
+}
+.questionnaire-result-number img {
+	width: 250px;
+	height: 250px;
+	margin: 40px auto;
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.questionnaire-result .pay-btn {
+	float: left;
+    width: 120px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    background: #E799B0;
+    border-radius: 8px;
+    margin: 0 39%;
+}
+.questionnaire-result .pay-btn button {
+	color: #fff!important;
+	margin: 0;
+	padding: 0;
+	outline: none;
+	border-radius: 0;
+	background-color: transparent;
+	line-height: inherit;
+	width: max-content;
+	border: none;
+    font-size: 16px;
+    font-weight: 600;
+   	cursor: pointer;
+}
+.questionnaire-result .pay-btn button:after {
+	border: none;
+}
 
