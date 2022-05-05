@@ -2980,8 +2980,8 @@ a.top-icon1 {
 }
 .pmain-profile {
   width: 940px;
-  min-height: 518px;
   background-color: #fff;
+  min-height: 518px;
 }
 /*叹号*/
 .markicon {
@@ -3622,6 +3622,7 @@ a.top-icon1 {
   width: 880px;
   padding-top: 25px;
   height: 35px;
+  /*min-height: 518px;*/
 } /* 20150425 */
 .personal-zhsz h3 i,
 .personal-xtxx h3 i,
@@ -3636,7 +3637,7 @@ a.top-icon1 {
   position: absolute;
   left: 0;
   bottom: -1px;
-  border-bottom: 2px solid #28a7e1;
+  border-bottom: 2px solid #E799B0;
   padding-bottom: 10px;
 } /* 20150425 */
 .grzxbg {
@@ -5169,6 +5170,7 @@ a.top-icon1 {
 .personal-money {
   height: auto;
   background: #fff;
+  min-height: 518px;
 }
 .personal-money .money-choose {
   margin: 28px 0 20px 0;
@@ -5270,7 +5272,7 @@ a.top-icon1 {
 }
 .personal-moneylist .pmain-title3 {
   width: 100px;
-  text-align: right;
+  text-align: left;
 }
 .personal-moneylist .pmain-title4 {
   width: 110px;
@@ -7306,4 +7308,28 @@ a.top-icon1 {
 
 .disabled .el-upload--picture-card {
     display: none;
+}
+
+
+.pmain-title3 .action-btn {
+  border: none;
+  padding: 5px 10px;
+  background-color: #E799B0;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.personal-money .add-btn {
+  border: none;
+  padding: 10px 30px;
+  background-color: #E799B0;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 40px 40%;
+}
+.personal-money .add-btn a {
+  color: #fff;
 }

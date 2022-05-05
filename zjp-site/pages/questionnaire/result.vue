@@ -6,9 +6,9 @@
     		<p>您已完成问卷评测，得分是{{ score }}。</p>
     	</div>
     	<div class="question-result-text">
-    		<p>
+    		<p v-html="text"> 
                 {{ text }}
-    		</p>            
+    		</p>
     	</div>
     </div>
   </main>

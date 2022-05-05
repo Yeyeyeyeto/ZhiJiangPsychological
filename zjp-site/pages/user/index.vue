@@ -38,7 +38,7 @@
               <i class="markicon"></i>
             </span>
             <span class="truemoney">
-              <i class="f26 fb">{{ userIndexVO.ConsultingNumber }}</i>
+              <i class="f26 fb">{{ userIndexVO.consultingNumber }}</i>
             </span>
           </li>
         </ul>

@@ -24,6 +24,11 @@
         <NuxtLink to="/user/articlemanagement"> <i class="dot dot03"></i>文章管理</NuxtLink>
       </span>
     </li>
+    <li :class="{ 'pleft-cur': $route.fullPath === '/user/questionnairemanagement' }">
+      <span>
+        <NuxtLink to="/user/questionnairemanagement"> <i class="dot dot02"></i>问卷管理</NuxtLink>
+      </span>
+    </li>
     <li :class="{ 'pleft-cur': $route.fullPath === '/user/alerts' }">
       <span>
         <NuxtLink to="/user/alerts"> <i class="dot dot08"></i>消息通知</NuxtLink>

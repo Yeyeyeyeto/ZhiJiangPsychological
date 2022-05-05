@@ -1,18 +1,18 @@
 <template>
   <div class="personal-main">
     <div class="personal-money">
-      <h3><i>文章管理</i></h3>
+      <h3><i>问卷管理</i></h3>
 
       <div class="personal-moneylist" style="margin-top: 40px;">
         <div class="pmain-contitle">
           <span class="pmain-title1 fb" style="width: 100px;">
-            文章ID
+            问卷ID
           </span>
           <span class="pmain-title2 fb" style="width: 300px;">
-            文章标题
+            问卷名称
           </span>
           <span class="pmain-title3 fb" style="width: 150px;">
-             创建时间
+            创建时间
           </span>
           <span class="pmain-title3 fb" style="width: 140px;">
              操作
@@ -28,20 +28,20 @@
               {{ item.id }}
             </span>
             <span class="pmain-title2 pmain-height" style="width: 300px;">
-              {{ item.articleName }}
+              {{ item.questionnaireName }}
             </span>
             <span class="pmain-title3 pmain-height" style="width: 150px;">
               {{ item.createTime }}
             </span>
             <span class="pmain-title3 pmain-height" style="width: 160px;">
-              <span><button class="action-btn" @click="alertArticle(item.id)" >修改</button></span>              
-              <span><button class="action-btn" @click="deleteArticle(item.id)">删除</button></span>
+              <span><button class="action-btn" @click="alertArticle(item.id)" >完善</button></span>              
+              <span><button class="action-btn" @click="deleteQuestionnaire(item.id)">删除</button></span>
             </span>
           </li>
         </ul>
 
           <button class="add-btn" v-if="status === 2">
-            <NuxtLink to="/user/addarticle">发布文章</NuxtLink>
+            <NuxtLink to="/user/addquestionnaire">发布问卷</NuxtLink>
           </button>
 
       </div>
@@ -59,23 +59,28 @@ export default {
   },
 
   created() {
-    this.fetchArticleList()
+    this.fetchQList()
   },
 
   methods: {
-    fetchArticleList() {
-      this.$axios.$get('/admin/core/article/consultantList').then((response) => {
+    fetchQList() {
+      this.$axios.$get('/admin/core/questionnaire/consultantList').then((response) => {
         this.list = response.data.list
       });
       this.$axios.$get('/admin/core/consultant/getAuthStatus').then((response) => {
         this.status = response.data.authStatus
       });
     },
-    deleteArticle(id) {
-      this.$axios.$delete('/admin/core/article/remove/' + id).then((response) => {
+    deleteQuestionnaire(id) {
+      this.$axios.$delete('/admin/core/questionnaire/remove/' + id).then((response) => {
         location.reload();
       })
     },
+    // alertArticle(id) {
+    //   this.$axios.$get('/admin/core/article/startOrder/' + id).then((response) => {
+    //     location.reload();
+    //   })
+    // },
   }
 }
 </script>

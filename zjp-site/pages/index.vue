@@ -33,7 +33,7 @@
     	<div class="content-test">
          <tbody>
                 <tr  class="questionnaire-item" v-for="(questionnaireItem, index) in questionnaireItemList" 
-                    
+                    v-if="index<12"
                     :key="questionnaireItem.id">
                     <td class="questionnaire-name"><NuxtLink :to="'/questionnaire/' + questionnaireItem.id">{{ questionnaireItem.questionnaireName }}</NuxtLink></td>
                     <td class="questionnaire-intro">{{ questionnaireItem.questionnaireIntro }}</td>
