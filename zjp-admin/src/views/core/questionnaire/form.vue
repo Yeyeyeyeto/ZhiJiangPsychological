@@ -10,8 +10,8 @@
         <el-input v-model="questionnaire.questionnaireName"/>
       </el-form-item>
 
-      <el-form-item label="问卷类型(1是否；2单选；3问答；4多选；5混合)">
-        <el-input-number v-model="questionnaire.questionnaireType" :min="0" :max="5" />
+      <el-form-item label="问卷类型(1是否；2单选；3多选；)">
+        <el-input-number v-model="questionnaire.questionnaireType" :min="0" :max="3" />
       </el-form-item>
 
       <el-form-item label="问卷简介">

@@ -3,6 +3,7 @@ package com.eternal.zjp.core.controller.admin;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.eternal.common.result.R;
+import com.eternal.zjp.base.util.JwtUtils;
 import com.eternal.zjp.core.pojo.entity.Consultant;
 import com.eternal.zjp.core.pojo.query.ConsultantQuery;
 import com.eternal.zjp.core.pojo.vo.ConsultantDetailVO;
@@ -14,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -96,6 +98,15 @@ public class AdminConsultantController {
         } else {
             return R.error().message("数据不存在");
         }
+    }
+
+    @ApiOperation("获取当前咨询师认证状态")
+    @GetMapping("/getAuthStatus")
+    public R getAuthStatus(HttpServletRequest request) {
+        Integer userId = JwtUtils.getUserId(request.getHeader("token"));
+        Consultant consultant = consultantService.getById(userId);
+        Integer authStatus = consultant.getConsultantAuthStatus();
+        return R.ok().message("提交成功").data("authStatus", authStatus);
     }
 
 }

@@ -1,8 +1,12 @@
 package com.eternal.zjp.core.service;
 
-import com.eternal.zjp.core.pojo.entity.QuestionnaireWhether;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.eternal.zjp.core.pojo.entity.QuestionnaireWhether;
+import com.eternal.zjp.core.pojo.vo.QuestionnaireRadioVO;
 import com.eternal.zjp.core.pojo.vo.QuestionnaireWhetherVO;
+
+import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * <p>
@@ -17,4 +21,9 @@ public interface QuestionnaireWhetherService extends IService<QuestionnaireWheth
     void submit(QuestionnaireWhetherVO questionnaireWhetherVO);
 
     QuestionnaireWhetherVO getQuestionnaireDetails(Integer id);
+
+    void radioSubmit(QuestionnaireRadioVO questionnaireRadioVO);
+
+
+    int calScore(Integer questionnaireId, Integer userId, ArrayList<Map<String, Integer>> radioList);
 }

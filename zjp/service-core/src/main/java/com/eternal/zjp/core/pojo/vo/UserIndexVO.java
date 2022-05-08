@@ -28,6 +28,6 @@ public class UserIndexVO {
     private Integer testNumber;
 
     @ApiModelProperty(value = "咨询次数")
-    private Integer ConsultingNumber;
+    private Integer consultingNumber;
 
 }

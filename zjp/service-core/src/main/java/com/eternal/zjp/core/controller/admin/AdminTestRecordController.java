@@ -1,8 +1,10 @@
 package com.eternal.zjp.core.controller.admin;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.eternal.common.result.R;
+import com.eternal.zjp.base.util.JwtUtils;
 import com.eternal.zjp.core.pojo.entity.TestRecord;
 import com.eternal.zjp.core.service.TestRecordService;
 import io.swagger.annotations.Api;
@@ -12,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -48,6 +51,16 @@ public class AdminTestRecordController {
         Page<TestRecord> pageParam = new Page<>(page, limit);
         IPage<TestRecord> pageModel = testRecordService.listPage(pageParam, keyword);
         return R.ok().data("pageModel", pageModel);
+    }
+
+    @ApiOperation("用户测试问卷列表")
+    @GetMapping("/userList")
+    public R userList(HttpServletRequest request) {
+        Integer userId = JwtUtils.getUserId(request.getHeader("token"));
+        QueryWrapper<TestRecord> testRecordQueryWrapper = new QueryWrapper<>();
+        testRecordQueryWrapper.eq("user_id", userId);
+        List<TestRecord> list = testRecordService.list(testRecordQueryWrapper);
+        return R.ok().data("list", list);
     }
 
 }

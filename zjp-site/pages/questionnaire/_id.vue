@@ -8,8 +8,12 @@
         <br>
       </div>
 
-      <div class="question-content">
-        <ul class="question-item" v-for="(item, index) in questionItem" :key="index">
+      <!-- 是否型 -->
+      <div class="question-content"
+            v-if="questionnaireItem.questionnaireType == 1">
+        <ul class="question-item"            
+            v-for="(item, index) in questionItem" 
+            :key="index">
           <li :prop="'questionItem' + index + 'questionTitle'">
             <span :prop="'questionItem' + index + 'questionNum'">{{ item.questionNum }}.</span> 
             {{ item.questionTitle }}
@@ -30,7 +34,39 @@
           </li>
         </ul>
         <button class="questionnaire-submit-btn" @click="submit(questionnaireItem.id)">完成</button>
-      </div>      
+      </div>
+
+
+      <!-- 单选型 -->
+      <div class="question-content"
+            v-if="questionnaireItem.questionnaireType == 2">
+        <ul class="question-item"            
+            v-for="(item, index) in questionRadioItem" 
+            :key="index">
+          <li :prop="'questionRadioItem' + index + 'questionTitle'">
+            <span :prop="'questionRadioItem' + index + 'questionNum'">{{ item.questionNum }}.</span> 
+            {{ item.questionTitle }}
+            <br><br>
+            <input type="radio" 
+              :name="'questionItemRadio' + index + '0'"
+              @click="radioItemChange(index, 0)"
+              />
+            <label>{{ Object.keys(JSON.parse(item.radioOptions))[0] }}</label>
+            
+            <div v-for="n in Object.keys(JSON.parse(item.radioOptions)).length-1" >
+              <input type="radio" 
+              :name="'questionItemRadio' + index + n"
+              @click="radioItemChange(index, n)"
+              />
+              <label>{{ Object.keys(JSON.parse(item.radioOptions))[n] }}</label>
+            </div>
+            
+
+          </li>
+        </ul>
+        <button class="questionnaire-submit-btn" @click="radioSubmit(questionnaireItem.id)">完成</button>
+      </div>
+
 
       <div class="questionnaire-item-info">
         <div class="questionnaire-item-info-name" v-if="questionnaireItem.authorId==0">枝江心理官方</div>
@@ -49,10 +85,12 @@ export default {
       let questionnaireId = params.id;
       let response = await $axios.$get('/admin/core/questionnaire/get/' + questionnaireId);
       let question = await $axios.$get('/admin/core/questionnaire/showDetails/' + questionnaireId);
+      let radioQuestion = await $axios.$get('/admin/core/questionnaire/showRadioDetails/' + questionnaireId);
 
       return {
         questionnaireItem: response.data.record, 
-        questionItem: question.data.itemList
+        questionItem: question.data.itemList,
+        questionRadioItem: radioQuestion.data.itemList
       }
   },
 
@@ -81,9 +119,16 @@ export default {
     },
 
     submit(id) {
-      console.log(this.radioList);
-      console.log(id);
       this.$axios.$post('/api/core/questionnaireWhether/submit', {key1: id, key2: this.radioList}).then((response) => {
+        console.log(response);
+        console.log(response.data.score);
+        // cookie.set('user', response.data.user)
+        window.location.href = '/questionnaire/result?id=' + id + '&score=' + response.data.score;
+      })
+    },
+
+    radioSubmit(id) {
+      this.$axios.$post('/api/core/questionnaireRadio/submit', {key1: id, key2: this.radioList}).then((response) => {
         console.log(response);
         console.log(response.data.score);
         // cookie.set('user', response.data.user)

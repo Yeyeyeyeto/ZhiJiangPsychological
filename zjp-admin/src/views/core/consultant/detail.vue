@@ -97,7 +97,7 @@
       </el-row>
       <el-row>
         <el-col :span="24">
-          <el-form-item label="房产信息">
+          <el-form-item label="资质信息">
             <span v-for="item in consultant.consultantAttachVOList" :key="item.id">
               <el-image
                 v-if="item.imageType == 'credential'"
@@ -116,7 +116,7 @@
       </el-row>
     </el-form>
 
-    <el-form v-if="consultant.consultantAuthStatus === '认证中'" label-width="170px">
+    <el-form v-if="consultant.status === '认证中'" label-width="170px">
       <el-form-item label="是否通过">
         <el-radio-group v-model="status">
           <el-radio :label="2">

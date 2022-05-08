@@ -25,7 +25,7 @@
       </el-row>
 
       <el-row>
-        <el-col :span="3">
+        <el-col :span="12">
           <el-form-item label="问卷名称">
             {{ questionnaire.questionnaireName }}
           </el-form-item>
@@ -35,7 +35,10 @@
             {{ questionnaire.questionnaireType }}
           </el-form-item>
         </el-col>
-        <el-col :span="8">
+      </el-row>
+
+      <el-row>
+        <el-col :span="12">
           <el-form-item label="结果说明">
             {{ questionnaire.questionnaireIntro }}
           </el-form-item>
@@ -96,6 +99,36 @@
 
 
     <!-- 2 单选 -->
+    <el-form v-if="questionnaire.questionnaireType == 2" ref="questionnaireWhetherItemForm" :inline="true" :model="questionnaireRadioItemForm">
+      <div v-for="(item, index) in questionnaireRadioItemForm" :key="index">
+        <el-row>
+          <el-col :span="2">
+            <el-form-item label="题号" :prop="'questionnaireRadioItemForm.' + index + '.questionNum'">
+              {{ item.questionNum }}
+            </el-form-item>
+          </el-col>
+
+          <el-col :span="8">
+            <el-form-item label="题干" :prop="'questionnaireRadioItemForm.' + index + '.questionTitle'">
+              <el-input v-model="item.questionTitle" class="input-text" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :span="5">
+            <el-form-item label="选项" :prop="'questionnaireRadioItemForm.' + index + '.radioOptions'">
+              <el-input v-model="item.radioOptions" class="input-text" />
+            </el-form-item>
+          </el-col>
+
+          <el-col :span="4">
+            <el-form-item>
+              <el-button v-if="index+1 == questionnaireRadioItemForm.length" @click="addRadioItem" type="primary">增加</el-button>
+              <el-button v-if="index !== 0" @click="deleteRadioItem(item, index)" type="danger">删除</el-button>
+            </el-form-item>
+          </el-col>
+        </el-row>
+      </div>
+    </el-form>
 
 
     <!-- 3 问答 -->
@@ -108,7 +141,16 @@
 
 
     <el-row style="text-align:center">
-      <el-button type="primary" @click="detailsWhetherSubmit()">
+      <el-button 
+        v-if="questionnaire.questionnaireType == 1" 
+        type="primary" 
+        @click="detailsWhetherSubmit()">
+        确定
+      </el-button>
+      <el-button 
+        v-if="questionnaire.questionnaireType == 2" 
+        type="primary" 
+        @click="detailsRadioSubmit()">
         确定
       </el-button>
     </el-row>
@@ -145,7 +187,15 @@ export default {
           trueScore: 0, // 选是的分值
           falseScore: 0  // 选否的分值
         }
-      ]
+      ],
+      questionnaireRadioItemForm: [
+        {
+          questionnaireId: 0,
+          questionNum: 1,  // 题号
+          questionTitle: "",  // 题干
+          radioOptions: ""
+        }
+      ],
 
     }
   },
@@ -160,7 +210,6 @@ export default {
     fetchDataById() {
       questionnaireApi.show(this.$route.params.id).then(response => {
         this.questionnaire = response.data.questionnaireVO;
-        // this.questionnaireWhetherItemForm.qItem = response.data.questionnaireWhetherVO;
       })
     },
 
@@ -185,15 +234,37 @@ export default {
     },
 
     detailsWhetherSubmit() {
-      // this.questionnaireWhetherItemForm.questionnaireId = this.$route.params.id;
-      // console.log(this.questionnaireWhetherItemForm[0]);
-
       for (var i = 0; i < this.questionnaireWhetherItemForm.length; i++) {
         this.questionnaireWhetherItemForm[i].questionnaireId = this.$route.params.id;
         questionnaireApi.detailsWhetherSubmit(this.questionnaireWhetherItemForm[i]);
                     
-      }
-      
+      }    
+      this.$message.success('提交成功');
+      this.$router.push('/core/questionnaire/list');
+    },
+
+    addRadioItem() {
+      this.qSum++;
+      this.questionnaireRadioItemForm.push({
+          questionNum: this.qSum,  
+          questionTitle: "",          
+          radioOptions: ""
+      });
+    },
+
+    deleteRadioItem(item, index) {
+      this.qSum--;
+      this.questionnaireRadioItemForm.splice(index, 1);
+      console.log(this.questionnaireRadioItemForm, "删除");
+    },
+
+    detailsRadioSubmit() {
+      console.log(this.questionnaireRadioItemForm)
+      for (var i = 0; i < this.questionnaireRadioItemForm.length; i++) {
+        this.questionnaireRadioItemForm[i].questionnaireId = this.$route.params.id;
+        questionnaireApi.detailsRadioSubmit(this.questionnaireRadioItemForm[i]);
+                    
+      }    
       this.$message.success('提交成功');
       this.$router.push('/core/questionnaire/list');
     },

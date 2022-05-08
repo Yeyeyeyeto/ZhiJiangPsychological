@@ -116,10 +116,7 @@ public class ConsultantServiceImpl extends ServiceImpl<ConsultantMapper, Consult
 
         consultantDetailVO.setSex(consultant.getSex()==1?"男":"女");
 
-        System.out.println("-----------------");
-        System.out.println(consultantDetailVO.toString());
-
-        String status = ConsultantStatusEnum.getMsgByStatus(consultant.getStatus());
+        String status = ConsultantStatusEnum.getMsgByStatus(consultant.getConsultantAuthStatus());
         consultantDetailVO.setStatus(status);
 
         List<ConsultantAttachVO> consultantAttachVOList =  consultantAttachService.selectConsultantAttachVOList(id);

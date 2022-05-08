@@ -6,11 +6,11 @@
         <el-input v-model="article.authorId"/>
       </el-form-item>
 
-      <el-form-item label="问卷名称">
+      <el-form-item label="文章标题">
         <el-input v-model="article.articleName"/>
       </el-form-item>
 
-      <el-form-item label="结果说明">
+      <el-form-item label="文章内容">
         <el-input v-model="article.articleText" type='textarea' style="resize:none;" autosize />
       </el-form-item>
 

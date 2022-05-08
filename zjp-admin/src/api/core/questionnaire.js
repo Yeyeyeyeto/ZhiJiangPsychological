@@ -73,6 +73,14 @@ export default {
 		  url: `/admin/core/questionnaire/showDetails/${id}`,
 		  method: 'get'
 		})
+	},
+
+	detailsRadioSubmit(questionnaireRadioItemForm) {
+		return request({
+		  url: '/admin/core/questionnaire/radioSubmit',
+		  method: 'post',
+		  data: questionnaireRadioItemForm
+		})
 	}
 
 }

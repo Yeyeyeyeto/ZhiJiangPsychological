@@ -34,7 +34,7 @@
 			<template slot-scope="scope">
 				<router-link v-if="scope.row.status === 1" :to="'/core/questionnaire/edit/' + scope.row.id" style="margin-right:5px;" >
 					<el-button type="primary" size="mini" icon="el-icon-edit">
-						修改
+						完善
 					</el-button>
 				</router-link>
 				<router-link v-else :to="'/core/questionnaire/show/' + scope.row.id" style="margin-right:5px;" >

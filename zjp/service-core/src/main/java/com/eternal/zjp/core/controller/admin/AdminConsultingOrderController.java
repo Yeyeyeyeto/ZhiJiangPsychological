@@ -1,6 +1,7 @@
 package com.eternal.zjp.core.controller.admin;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.eternal.common.result.R;
@@ -115,6 +116,59 @@ public class AdminConsultingOrderController {
         Page<ConsultingOrder> pageParam = new Page<>(page, limit);
         IPage<ConsultingOrder> pageModel = consultingOrderService.listPage(pageParam, keyword);
         return R.ok().data("pageModel", pageModel);
+    }
+
+    @ApiOperation("用户预约订单列表")
+    @GetMapping("/userList")
+    public R userList(HttpServletRequest request) {
+        Integer userId = JwtUtils.getUserId(request.getHeader("token"));
+        QueryWrapper<ConsultingOrder> consultingOrderQueryWrapper = new QueryWrapper<>();
+        consultingOrderQueryWrapper.eq("user_id", userId);
+        List<ConsultingOrder> list = consultingOrderService.list(consultingOrderQueryWrapper);
+        return R.ok().data("list", list);
+    }
+
+    @ApiOperation("咨询师预约订单列表")
+    @GetMapping("/consultantList")
+    public R consultantList(HttpServletRequest request) {
+        Integer userId = JwtUtils.getUserId(request.getHeader("token"));
+        QueryWrapper<ConsultingOrder> consultingOrderQueryWrapper = new QueryWrapper<>();
+        consultingOrderQueryWrapper.eq("consultant_id", userId);
+        List<ConsultingOrder> list = consultingOrderService.list(consultingOrderQueryWrapper);
+        return R.ok().data("list", list);
+    }
+
+    @ApiOperation("取消订单")
+    @GetMapping("/cancelOrder/{id}")
+    public R cancelOrder (@PathVariable Integer id, HttpServletRequest request) {
+        QueryWrapper<ConsultingOrder> consultingOrderQueryWrapper = new QueryWrapper<>();
+        consultingOrderQueryWrapper.eq("id", id);
+        ConsultingOrder consultingOrder = consultingOrderService.getById(id);
+        consultingOrder.setStatus(3);
+        consultingOrderService.updateById(consultingOrder);
+        return R.ok().message("提交成功");
+    }
+
+    @ApiOperation("确认订单")
+    @GetMapping("/confirmOrder/{id}")
+    public R confirmOrder (@PathVariable Integer id, HttpServletRequest request) {
+        QueryWrapper<ConsultingOrder> consultingOrderQueryWrapper = new QueryWrapper<>();
+        consultingOrderQueryWrapper.eq("id", id);
+        ConsultingOrder consultingOrder = consultingOrderService.getById(id);
+        consultingOrder.setStatus(2);
+        consultingOrderService.updateById(consultingOrder);
+        return R.ok().message("提交成功");
+    }
+
+    @ApiOperation("确认订单")
+    @GetMapping("/startOrder/{id}")
+    public R startOrder (@PathVariable Integer id, HttpServletRequest request) {
+        QueryWrapper<ConsultingOrder> consultingOrderQueryWrapper = new QueryWrapper<>();
+        consultingOrderQueryWrapper.eq("id", id);
+        ConsultingOrder consultingOrder = consultingOrderService.getById(id);
+        consultingOrder.setStatus(1);
+        consultingOrderService.updateById(consultingOrder);
+        return R.ok().message("提交成功");
     }
 
 }

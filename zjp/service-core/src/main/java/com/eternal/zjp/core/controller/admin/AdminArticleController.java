@@ -1,10 +1,12 @@
 package com.eternal.zjp.core.controller.admin;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.eternal.common.exception.BusinessException;
 import com.eternal.common.result.R;
 import com.eternal.common.result.ResponseEnum;
+import com.eternal.zjp.base.util.JwtUtils;
 import com.eternal.zjp.core.pojo.entity.Article;
 import com.eternal.zjp.core.service.ArticleService;
 import io.swagger.annotations.Api;
@@ -14,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -58,6 +61,24 @@ public class AdminArticleController {
         if (article.getArticleName() == null) {
             throw new BusinessException(ResponseEnum.ARTICLE_AMOUNT_NULL_ERROR);
         }
+        boolean result = articleService.save(article);
+        if (result) {
+            return R.ok().message("保存成功");
+        } else {
+            return R.error().message("保存失败");
+        }
+    }
+
+    @ApiOperation("新增咨询师发布文章")
+    @PutMapping("/cSave")
+    public R cSave(
+            @ApiParam(value = "文章对象", required = true)
+            @RequestBody Article article, HttpServletRequest request) {
+        // 如果为空抛出自定义异常
+        if (article.getArticleName() == null) {
+            throw new BusinessException(ResponseEnum.ARTICLE_AMOUNT_NULL_ERROR);
+        }
+        article.setAuthorId(JwtUtils.getUserId(request.getHeader("token")));
         boolean result = articleService.save(article);
         if (result) {
             return R.ok().message("保存成功");
@@ -111,5 +132,15 @@ public class AdminArticleController {
         return R.ok().data("pageModel", pageModel);
     }
 
+    @ApiOperation("咨询师文章列表")
+    @GetMapping("/consultantList")
+    public R consultantList(HttpServletRequest request) {
+        System.out.println(request.getHeader("token"));
+        Integer userId = JwtUtils.getUserId(request.getHeader("token"));
+        QueryWrapper<Article> articleQueryWrapper = new QueryWrapper<>();
+        articleQueryWrapper.eq("author_id", userId);
+        List<Article> list = articleService.list(articleQueryWrapper);
+        return R.ok().data("list", list);
+    }
 
 }

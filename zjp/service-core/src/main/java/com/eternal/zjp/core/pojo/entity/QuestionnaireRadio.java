@@ -2,11 +2,12 @@ package com.eternal.zjp.core.pojo.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
 
 /**
  * <p>
@@ -37,7 +38,7 @@ public class QuestionnaireRadio implements Serializable {
     private String questionTitle;
 
     @ApiModelProperty(value = "选项内容及对应分值")
-    private String option;
+    private String radioOptions;
 
 
 }

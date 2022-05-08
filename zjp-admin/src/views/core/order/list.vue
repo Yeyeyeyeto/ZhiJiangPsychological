@@ -8,9 +8,25 @@
 		<el-table-column prop="userId" label="用户ID" />
 		<el-table-column prop="consultantId" label="咨询师ID" />
 		<el-table-column prop="amount" label="交易金额" />
+		<el-table-column label="订单状态" width="120">
+		<template slot-scope="scope">
+		  <el-tag v-if="scope.row.status === 0" type="warning" size="mini">
+		    已支付
+		  </el-tag>
+		  <el-tag v-if="scope.row.status === 1" type="warning" size="mini">
+		    进行中
+		  </el-tag>
+		  <el-tag v-if="scope.row.status === 2" type="success" size="mini">
+		    已完成
+		  </el-tag>
+		  <el-tag v-if="scope.row.status === 3" type="info" size="mini">
+		    已取消
+		  </el-tag>
+		</template>
+		</el-table-column>
 
-      <el-table-column prop="createTime" label="下单时间" width="180" />
-      <el-table-column prop="updateTime" label="最后操作时间" width="180" />
+	      <el-table-column prop="createTime" label="下单时间" width="180" />
+	      <el-table-column prop="updateTime" label="最后操作时间" width="180" />
 
 		<el-table-column label="操作">
 			<template slot-scope="scope">

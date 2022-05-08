@@ -12,6 +12,7 @@ import com.eternal.zjp.base.util.JwtUtils;
 import com.eternal.zjp.core.mapper.AccountMapper;
 import com.eternal.zjp.core.mapper.UserMapper;
 import com.eternal.zjp.core.pojo.entity.Account;
+import com.eternal.zjp.core.pojo.entity.ConsultingOrder;
 import com.eternal.zjp.core.pojo.entity.TestRecord;
 import com.eternal.zjp.core.pojo.entity.User;
 import com.eternal.zjp.core.pojo.query.UserQuery;
@@ -19,6 +20,7 @@ import com.eternal.zjp.core.pojo.vo.LoginVO;
 import com.eternal.zjp.core.pojo.vo.RegisterVO;
 import com.eternal.zjp.core.pojo.vo.UserIndexVO;
 import com.eternal.zjp.core.pojo.vo.UserVO;
+import com.eternal.zjp.core.service.ConsultingOrderService;
 import com.eternal.zjp.core.service.TestRecordService;
 import com.eternal.zjp.core.service.UserService;
 import org.springframework.stereotype.Service;
@@ -43,6 +45,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Resource
     private TestRecordService testRecordService;
+
+    @Resource
+    private ConsultingOrderService consultingOrderService;
 
     @Override
     public IPage<User> listPage(Page<User> pageParam, UserQuery userQuery) {
@@ -167,16 +172,17 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         userIndexVO.setHeadImg(user.getHeadImg());
 //        userIndexVO.setLastLoginTime(userLoginRecord.getCreateTime());
 
-
         QueryWrapper<TestRecord> testRecordQueryWrapper = new QueryWrapper<>();
         testRecordQueryWrapper.like("user_id", user.getId());
         userIndexVO.setTestNumber(testRecordService.count(testRecordQueryWrapper));
 
-        userIndexVO.setConsultingNumber(0);
+        QueryWrapper<ConsultingOrder> consultingOrderQueryWrapper = new QueryWrapper<>();
+        consultingOrderQueryWrapper.like("user_id", user.getId());
+        userIndexVO.setConsultingNumber(consultingOrderService.count(consultingOrderQueryWrapper));
 
+        System.out.println(userIndexVO.toString());
 
         return userIndexVO;
     }
-
 
 }

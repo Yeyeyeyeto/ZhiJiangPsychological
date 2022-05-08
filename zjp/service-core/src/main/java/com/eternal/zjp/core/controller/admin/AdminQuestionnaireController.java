@@ -6,10 +6,14 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.eternal.common.exception.BusinessException;
 import com.eternal.common.result.R;
 import com.eternal.common.result.ResponseEnum;
+import com.eternal.zjp.base.util.JwtUtils;
 import com.eternal.zjp.core.pojo.entity.Questionnaire;
+import com.eternal.zjp.core.pojo.entity.QuestionnaireRadio;
 import com.eternal.zjp.core.pojo.entity.QuestionnaireWhether;
+import com.eternal.zjp.core.pojo.vo.QuestionnaireRadioVO;
 import com.eternal.zjp.core.pojo.vo.QuestionnaireVO;
 import com.eternal.zjp.core.pojo.vo.QuestionnaireWhetherVO;
+import com.eternal.zjp.core.service.QuestionnaireRadioService;
 import com.eternal.zjp.core.service.QuestionnaireService;
 import com.eternal.zjp.core.service.QuestionnaireWhetherService;
 import io.swagger.annotations.Api;
@@ -19,6 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -37,6 +42,9 @@ public class AdminQuestionnaireController {
 
     @Resource
     private QuestionnaireWhetherService questionnaireWhetherService;
+
+    @Resource
+    private QuestionnaireRadioService questionnaireRadioService;
 
     @ApiOperation("问卷列表")
     @GetMapping("/list")
@@ -67,6 +75,24 @@ public class AdminQuestionnaireController {
         if (questionnaire.getQuestionnaireName() == null) {
             throw new BusinessException(ResponseEnum.QUESTION_AMOUNT_NULL_ERROR);
         }
+        boolean result = questionnaireService.save(questionnaire);
+        if (result) {
+            return R.ok().message("保存成功");
+        } else {
+            return R.error().message("保存失败");
+        }
+    }
+
+    @ApiOperation("新增咨询师问卷")
+    @PutMapping("/cSave")
+    public R cSave(
+            @ApiParam(value = "问卷对象", required = true)
+            @RequestBody Questionnaire questionnaire, HttpServletRequest request) {
+        // 如果为空抛出自定义异常
+        if (questionnaire.getQuestionnaireName() == null) {
+            throw new BusinessException(ResponseEnum.QUESTION_AMOUNT_NULL_ERROR);
+        }
+        questionnaire.setAuthorId(JwtUtils.getUserId(request.getHeader("token")));
         boolean result = questionnaireService.save(questionnaire);
         if (result) {
             return R.ok().message("保存成功");
@@ -142,11 +168,40 @@ public class AdminQuestionnaireController {
         return R.ok().data("itemList", itemList);
     }
 
+    @ApiOperation("单项型问卷详情列表")
+    @GetMapping("/showRadioDetails/{id}")
+    public R showRadioDetails(
+            @ApiParam(value = "问卷条目id", required = true)
+            @PathVariable Integer id) {
+        QueryWrapper<QuestionnaireRadio> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("questionnaire_id", id).orderByAsc("question_num");
+        List<QuestionnaireRadio> itemList = questionnaireRadioService.list(queryWrapper);
+        return R.ok().data("itemList", itemList);
+    }
+
 
     @ApiOperation("是否题详细题目提交")
     @PostMapping("/whetherSubmit")
     public R whetherSubmit (@RequestBody QuestionnaireWhetherVO questionnaireWhetherVO) {
         questionnaireWhetherService.submit(questionnaireWhetherVO);
+        return R.ok().message("提交成功");
+    }
+
+    @ApiOperation("咨询师问卷列表")
+    @GetMapping("/consultantList")
+    public R consultantList(HttpServletRequest request) {
+        System.out.println(request.getHeader("token"));
+        Integer userId = JwtUtils.getUserId(request.getHeader("token"));
+        QueryWrapper<Questionnaire> questionnaireQueryWrapper = new QueryWrapper<>();
+        questionnaireQueryWrapper.eq("author_id", userId);
+        List<Questionnaire> list = questionnaireService.list(questionnaireQueryWrapper);
+        return R.ok().data("list", list);
+    }
+
+    @ApiOperation("单选题详细题目提交")
+    @PostMapping("/radioSubmit")
+    public R radioSubmit (@RequestBody QuestionnaireRadioVO QuestionnaireRadioVO) {
+        questionnaireWhetherService.radioSubmit(QuestionnaireRadioVO);
         return R.ok().message("提交成功");
     }
 
